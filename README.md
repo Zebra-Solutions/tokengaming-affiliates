@@ -1,2 +1,2 @@
-# turbo-affiliates
+# tokengaming-affiliates
 SPA for turbo affiliates
