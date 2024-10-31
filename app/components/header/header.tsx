@@ -25,15 +25,15 @@ export default function Header({ className = "" }: { className?: string }) {
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <MenuLogo/>
+          <MenuLogo width={160} />
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4">
-            <a href="#home" className="text-white hover:text-blue-300 font-semibold text-md">About us</a>
-            <a href="#about" className="text-white hover:text-blue-300 font-semibold text-md">Why us?</a>
-            <a href="#testimonials" className="text-white hover:text-blue-300 font-semibold text-md">Testimonials</a>
-            <a href="#faq" className="text-white hover:text-blue-300 font-semibold text-md">FAQ</a>
-            <a href="#contact-us" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</a>
+            <Link href="#home" className="text-white hover:text-blue-300 font-semibold text-md">About us</Link>
+            <Link href="#about" className="text-white hover:text-blue-300 font-semibold text-md">Why us?</Link>
+            <Link href="#testimonials" className="text-white hover:text-blue-300 font-semibold text-md">Testimonials</Link>
+            <Link href="#faq" className="text-white hover:text-blue-300 font-semibold text-md">FAQ</Link>
+            <Link href="#contact-us" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</Link>
           </nav>
 
           {/* Hamburger Menu for Medium and Smaller Screens */}

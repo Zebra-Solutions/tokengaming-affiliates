@@ -6,7 +6,7 @@ const Join: React.FC = () => {
       id="join"
       className="py-8 bg-cover bg-center text-left text-white"
       style={{
-        backgroundImage: `url(${bg.src})`, // Use bg.src to get the image URL
+        backgroundImage: `url(${bg.src})`,
       }}
     >
       <div className="w-full max-w-md mx-auto lg:mx-0 lg:ml-10 space-y-6 p-6 bg-transparent bg-opacity-50 rounded-md">

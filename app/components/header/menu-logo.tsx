@@ -1,17 +1,24 @@
 import Image from "next/image";
 
-export default function MenuLogo() {
-  return (
-    <>
-      <Image
-        src="/logo.png"
-        alt="logo image"
-        width={160}
-        height={100}
-        priority
-        style={{ width: "auto", height: "auto" }}
-        className="mr-10"
-      />
-    </>
-  );
+interface MenuLogoProps {
+  width?: number;
 }
+
+const MenuLogo: React.FC<MenuLogoProps> = ({ width = 160 }) => {
+  const aspectRatio = 1.6; // Replace with actual aspect ratio if known
+  const height = width / aspectRatio;
+
+  return (
+    <Image
+      src="/logo.png"
+      alt="logo image"
+      width={width}
+      height={height}
+      priority
+      className="mr-10"
+      style={{ height: "auto", width: "auto" }} // Ensures aspect ratio is maintained
+    />
+  );
+};
+
+export default MenuLogo;
