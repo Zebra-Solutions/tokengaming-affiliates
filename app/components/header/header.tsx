@@ -33,7 +33,7 @@ export default function Header({ className = "" }: { className?: string }) {
             <Link href="#about" className="text-white hover:text-blue-300 font-semibold text-md">Why us?</Link>
             <Link href="#testimonials" className="text-white hover:text-blue-300 font-semibold text-md">Testimonials</Link>
             <Link href="#faq" className="text-white hover:text-blue-300 font-semibold text-md">FAQ</Link>
-            <Link href="#contact-us" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</Link>
+            <Link href="#contact" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</Link>
           </nav>
 
           {/* Hamburger Menu for Medium and Smaller Screens */}
