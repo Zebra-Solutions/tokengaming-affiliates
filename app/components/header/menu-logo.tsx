@@ -1,7 +1,17 @@
+import Image from "next/image";
+
 export default function MenuLogo() {
   return (
-    <h3 className="flex items-center text-indigo-300">
-     Tokengaming Affiliates
-    </h3>
+    <>
+      <Image
+        src="/logo.png"
+        alt="logo image"
+        width={160}
+        height={100}
+        priority
+        style={{ width: "auto", height: "auto" }}
+        className="mr-10"
+      />
+    </>
   );
 }

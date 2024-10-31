@@ -1,71 +1,82 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import clsx from "clsx"; 
 import MenuLogo from "./menu-logo";
 import { Button } from "@/components/ui/button";
+import { Drawer } from "@/components/ui/drawer"; 
+import { MenuIcon } from "lucide-react";
 
 export default function Header({ className = "" }: { className?: string }) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setDrawerOpen((prev) => !prev);
+  };
+
   return (
-    <div
-      className={clsx(
-        "flex justify-between items-center p-4 border-b border-border sticky top-0 z-10 shadow-xl px-20", // Changed shadow-md to shadow-xl for a stronger shadow
-        className
+    <>
+      <div
+        className={clsx(
+          "flex justify-between items-center p-4 border-b border-border sticky top-0 z-10 shadow-xl lg:px-20",
+          className
+        )}
+        style={{ backgroundColor: "#162149" }}
+      >
+        <div className="flex items-center w-full">
+          {/* Menu Logo */}
+          <MenuLogo/>
+
+          {/* Navigation Links (Visible on large screens and above) */}
+          <nav className="hidden lg:flex lg:space-x-4">
+            <Link href="/home" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">About us</Link>
+            <Link href="/about" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Why us?</Link>
+            <Link href="/services" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Commission</Link>
+            <Link href="/testimonials" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Testimonials</Link>
+            <Link href="/faq" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">FAQ</Link>
+            <Link href="/contact" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Contact Us</Link>
+          </nav>
+
+          {/* Hamburger Menu for Medium and Smaller Screens */}
+          <button onClick={toggleDrawer} className="lg:hidden p-2 ml-auto">
+            <MenuIcon className="text-white" />
+          </button>
+        </div>
+
+        {/* Right side: Sign Up and Log In Buttons */}
+        <div className="hidden custom:flex items-center space-x-4">
+          <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px]">
+            Sign up
+          </Button>
+          <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
+            Log in
+          </Button>
+        </div>
+      </div>
+
+      {/* Drawer for Medium and Smaller Screens */}
+      {drawerOpen && (
+        <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+          <div className="p-4 bg-[#162149] text-white lg:hidden">
+            <nav className="flex flex-col space-y-4">
+              <Link href="/home" onClick={toggleDrawer} className="text-white hover:text-blue-300">About us</Link>
+              <Link href="/about" onClick={toggleDrawer} className="text-white hover:text-blue-300">Why us?</Link>
+              <Link href="/services" onClick={toggleDrawer} className="text-white hover:text-blue-300">Commission</Link>
+              <Link href="/testimonials" onClick={toggleDrawer} className="text-white hover:text-blue-300">Testimonials</Link>
+              <Link href="/faq" onClick={toggleDrawer} className="text-white hover:text-blue-300">FAQ</Link>
+              <Link href="/contact" onClick={toggleDrawer} className="text-white hover:text-blue-300">Contact Us</Link>
+            </nav>
+            <div className="my-5 gap-3">
+              <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px] mr-6">
+                Sign up
+              </Button>
+              <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
+                Log in
+              </Button>
+            </div>
+          </div>
+        </Drawer>
       )}
-      style={{ backgroundColor: "#162149" }}
-    >
-      {/* Left side: MenuLogo */}
-      <div className="flex items-center space-x-4">
-        <MenuLogo />
-
-        {/* Navigation Links */}
-        <nav className="hidden pl-20 md:flex md:justify-start lg:justify-start md:flex-col lg:flex-row md:gap-5 lg:gap-0 lg:flex-1 lg:pb-0 pb-12 absolute lg:static left-0 w-full lg:w-auto shadow-md lg:shadow-none text-start transition-all duration-500 ease-in top-[-700px] space-x-4">
-          <Link
-            href="/home"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            About us
-          </Link>
-          <Link
-            href="/about"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            Why us?
-          </Link>
-          <Link
-            href="/services"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            Commission
-          </Link>
-          <Link
-            href="/testimonials"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            Testimonials
-          </Link>
-          <Link
-            href="/faq"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            FAQ
-          </Link>
-          <Link
-            href="/contact"
-            className="text-white hover:text-blue-300 font-medium text-md transition-colors duration-200 px-2 py-1"
-          >
-            Contact Us
-          </Link>
-        </nav>
-      </div>
-
-      {/* Right side: Sign Up and Log In Buttons */}
-      <div className="flex items-center space-x-4">
-        <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px]">
-          Sign up
-        </Button>
-        <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
-          Log in
-        </Button>
-      </div>
-    </div>
+    </>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 // @ts-ignore
 import { Drawer as DrawerPrimitive } from "vaul";
@@ -12,13 +10,17 @@ export const DrawerContext = React.createContext<{
 }>({});
 
 const Drawer = ({
+  open,
+  onOpenChange,
   shouldScaleBackground = true,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
+}: React.ComponentProps<typeof DrawerPrimitive.Root> & { open: boolean; onOpenChange: (open: boolean) => void }) => (
   <DrawerContext.Provider
-    value={{ direction: props.direction, onClose: props.onClose }}
+    value={{ direction: props.direction, onClose: () => onOpenChange(false) }}
   >
     <DrawerPrimitive.Root
+      open={open} // Pass the open state here
+      onOpenChange={onOpenChange} // Pass the change handler
       shouldScaleBackground={shouldScaleBackground}
       {...props}
     />
@@ -27,9 +29,7 @@ const Drawer = ({
 Drawer.displayName = "Drawer";
 
 const DrawerTrigger = DrawerPrimitive.Trigger;
-
 const DrawerPortal = DrawerPrimitive.Portal;
-
 const DrawerClose = DrawerPrimitive.Close;
 
 const DrawerOverlay = React.forwardRef<
