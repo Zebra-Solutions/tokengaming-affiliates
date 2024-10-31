@@ -29,12 +29,11 @@ export default function Header({ className = "" }: { className?: string }) {
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4">
-            <Link href="/home" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">About us</Link>
-            <Link href="/about" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Why us?</Link>
-            <Link href="/services" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Commission</Link>
-            <Link href="/testimonials" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Testimonials</Link>
-            <Link href="/faq" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">FAQ</Link>
-            <Link href="/contact" className="text-white hover:text-blue-300 font-semibold text-md transition-colors duration-200 px-2 py-1">Contact Us</Link>
+            <a href="#home" className="text-white hover:text-blue-300 font-semibold text-md">About us</a>
+            <a href="#about" className="text-white hover:text-blue-300 font-semibold text-md">Why us?</a>
+            <a href="#testimonials" className="text-white hover:text-blue-300 font-semibold text-md">Testimonials</a>
+            <a href="#faq" className="text-white hover:text-blue-300 font-semibold text-md">FAQ</a>
+            <a href="#contact-us" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</a>
           </nav>
 
           {/* Hamburger Menu for Medium and Smaller Screens */}
