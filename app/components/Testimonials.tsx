@@ -36,7 +36,7 @@ const Testimonials: React.FC = () => {
               backgroundImage: `url(${card.bgImage})`,
               backgroundSize: "cover",
               backgroundBlendMode: "overlay",
-              backgroundColor: "rgba(0, 0, 0, 0.6)", // Dark overlay to improve text readability
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
             }}
           >
             <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
