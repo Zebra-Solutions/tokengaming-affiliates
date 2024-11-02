@@ -105,9 +105,7 @@ export default function Header({ className = "" }: { className?: string }) {
               </Link>
             </nav>
             <div className="my-5 gap-3">
-              <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px] mr-6">
-                Sign up
-              </Button>
+            <GradientButton href="/sign-up">Sign up</GradientButton>
               <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
                 Log in
               </Button>
