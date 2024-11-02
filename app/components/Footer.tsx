@@ -4,7 +4,7 @@ import Logo from "./logo";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className="w-full bg-gray-900 text-gray-50 rounded-lg shadow">
+    <footer className="w-full bg-[#161617] text-gray-50 rounded-lg shadow">
       <div className="max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Logo width={150} />

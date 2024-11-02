@@ -27,26 +27,26 @@ const WhyUs: React.FC = () => {
       title: "Quality Service",
       description:
         "We provide top-notch service and ensure customer satisfaction.",
-      imageUrl: "/card1.jpg",
+      imageUrl: "/cardblue1.jpg",
     },
     {
       title: "Expert Team",
       description:
         "Our team consists of industry experts with years of experience.",
-      imageUrl: "/card2.jpg",
+      imageUrl: "/cardblue2.jpg",
     },
     {
       title: "Innovative Solutions",
       description:
         "We bring innovative solutions to help you stay ahead of the competition.",
-      imageUrl: "/card3.jpg",
+      imageUrl: "/cardblue3.jpg",
     },
   ];
 
   return (
     <section
       id="about"
-      className="py-20 bg-gray-900 text-gray-50 flex flex-col md:flex-row items-center justify-center"
+      className="py-20 bg-[#161617] text-gray-50 flex flex-col md:flex-row items-center justify-center"
     >
       {/* Text Section */}
       <div className="w-full md:w-1/2 text-center md:text-left px-8 mb-8 md:mb-0">

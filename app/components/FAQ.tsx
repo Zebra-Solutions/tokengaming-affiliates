@@ -1,6 +1,6 @@
 "use client";
 
-import bg2 from '../../public/bg2.jpg';
+import bgblue2 from '../../public/bgblue2.jpg';
 import { useState } from "react";
 
 const faqs = [
@@ -29,20 +29,20 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 px-0 bg-gray-900 text-gray-50">
+    <section id="faq" className="py-20 px-0 bg-[#161617] text-gray-50">
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
         style={{
-          backgroundImage: `url(${bg2.src})`,
+          backgroundImage: `url(${bgblue2.src})`,
           backgroundBlendMode: "overlay",
           backgroundColor: "rgba(255, 255, 255, 0.05)",
         }}
       >
         {/* Top Fade */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-gray-900 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
         
         {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-gray-900 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#161617] to-transparent"></div>
 
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs

@@ -3,27 +3,27 @@ const Testimonials: React.FC = () => {
     {
       title: "Card 1",
       description: "This is the description for card 1.",
-      bgImage: "/card1.jpg",
+      bgImage: "/cardblue4.jpg",
     },
     {
       title: "Card 2",
       description: "This is the description for card 2.",
-      bgImage: "/card2.jpg",
+      bgImage: "/cardblue5.jpg",
     },
     {
       title: "Card 3",
       description: "This is the description for card 3.",
-      bgImage: "/card3.jpg",
+      bgImage: "/cardblue6.jpg",
     },
     {
       title: "Card 4",
       description: "This is the description for card 4.",
-      bgImage: "/card1.jpg",
+      bgImage: "/cardblue7.jpg",
     },
   ];
 
   return (
-    <section id="testimonials" className="py-20 px-4 bg-gray-900 text-gray-50">
+    <section id="testimonials" className="py-20 px-4 bg-[#161617] text-gray-50">
       <h2 className="text-3xl font-bold text-center mb-8">Testimonials</h2>
 
       <div className="flex justify-center">
