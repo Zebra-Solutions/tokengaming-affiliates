@@ -1,24 +1,24 @@
 import Image from "next/image";
-
+import { useEffect, useState } from "react";
 interface LogoProps {
   width?: number;
+  height?: number;
+  className?: string; // Add className prop
 }
+const Logo: React.FC<LogoProps> = ({ width = 150, height = 50, className }) => {
 
-const Logo: React.FC<LogoProps> = ({ width = 160 }) => {
-  const aspectRatio = 1.6; // Replace with actual aspect ratio if known
-  const height = width / aspectRatio;
 
   return (
-    <Image
-      src="/logo.png"
-      alt="logo image"
-      width={width}
-      height={height}
-      priority
-      className="mr-10"
-      style={{ height: "auto", width: "auto" }} // Ensures aspect ratio is maintained
-    />
+    <div style={{ position: 'relative', width, height }} className={className}>
+      <Image
+        src="/logo.png"
+        alt="logo image"
+        fill
+        sizes="(max-width: 640px) 100vw, 50vw"
+        className="object-contain"
+        priority
+      />
+    </div>
   );
 };
-
 export default Logo;

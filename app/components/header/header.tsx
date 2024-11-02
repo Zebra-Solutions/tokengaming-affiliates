@@ -27,10 +27,10 @@ export default function Header({ className = "" }: { className?: string }) {
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <Logo width={160} />
+          <Logo width={170} />
 
           {/* Navigation Links (Visible on large screens and above) */}
-          <nav className="hidden lg:flex lg:space-x-4">
+          <nav className="hidden lg:flex lg:space-x-4 ml-10">
             <NavLink href="#home">About Us</NavLink>
             <NavLink href="#about">Why Us?</NavLink>
             <NavLink href="#testimonials">Testimonials</NavLink>
@@ -106,7 +106,7 @@ export default function Header({ className = "" }: { className?: string }) {
             </nav>
             <div className="my-5 gap-3">
             <GradientButton href="/sign-up">Sign up</GradientButton>
-              <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
+              <Button  className="bg-[#161617] text-blue-600 border border-blue-600 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">
                 Log in
               </Button>
             </div>
