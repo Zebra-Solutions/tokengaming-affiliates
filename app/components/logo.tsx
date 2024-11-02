@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-interface MenuLogoProps {
+interface LogoProps {
   width?: number;
 }
 
-const MenuLogo: React.FC<MenuLogoProps> = ({ width = 160 }) => {
+const Logo: React.FC<LogoProps> = ({ width = 160 }) => {
   const aspectRatio = 1.6; // Replace with actual aspect ratio if known
   const height = width / aspectRatio;
 
@@ -21,4 +21,4 @@ const MenuLogo: React.FC<MenuLogoProps> = ({ width = 160 }) => {
   );
 };
 
-export default MenuLogo;
+export default Logo;

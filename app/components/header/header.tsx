@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import clsx from "clsx"; 
-import MenuLogo from "./menu-logo";
+import clsx from "clsx";
+import Logo from "../logo";
 import { Button } from "@/components/ui/button";
-import { Drawer } from "@/components/ui/drawer"; 
+import { Drawer } from "@/components/ui/drawer";
 import { MenuIcon } from "lucide-react";
+import GradientButton from "../GradiantButton";
+import NavLink from "../NavLink";
 
 export default function Header({ className = "" }: { className?: string }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -21,19 +23,19 @@ export default function Header({ className = "" }: { className?: string }) {
           "flex justify-between items-center p-4 border-b border-border sticky top-0 z-10 shadow-xl lg:px-20",
           className
         )}
-        style={{ backgroundColor: "#162149" }}
+        style={{ backgroundColor: "#161617" }}
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <MenuLogo width={160} />
+          <Logo width={160} />
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4">
-            <Link href="#home" className="text-white hover:text-blue-300 font-semibold text-md">About us</Link>
-            <Link href="#about" className="text-white hover:text-blue-300 font-semibold text-md">Why us?</Link>
-            <Link href="#testimonials" className="text-white hover:text-blue-300 font-semibold text-md">Testimonials</Link>
-            <Link href="#faq" className="text-white hover:text-blue-300 font-semibold text-md">FAQ</Link>
-            <Link href="#contact" className="text-white hover:text-blue-300 font-semibold text-md">Contact Us</Link>
+            <NavLink href="#home">About Us</NavLink>
+            <NavLink href="#about">Why Us?</NavLink>
+            <NavLink href="#testimonials">Testimonials</NavLink>
+            <NavLink href="#faq">FAQ</NavLink>
+            <NavLink href="#contact">Contact Us</NavLink>
           </nav>
 
           {/* Hamburger Menu for Medium and Smaller Screens */}
@@ -44,11 +46,12 @@ export default function Header({ className = "" }: { className?: string }) {
 
         {/* Right side: Sign Up and Log In Buttons */}
         <div className="hidden custom:flex items-center space-x-4">
-          <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px]">
-            Sign up
-          </Button>
-          <Button className="bg-[#162149] text-indigo-400 border border-indigo-400 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-indigo-400 hover:text-white">
-            Log in
+          <GradientButton href="/sign-up">Sign up</GradientButton>
+          <Button
+            asChild
+            className="bg-[#161617] text-blue-600 border border-blue-600 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white"
+          >
+            <Link href="/login">Log in</Link>
           </Button>
         </div>
       </div>
@@ -58,12 +61,48 @@ export default function Header({ className = "" }: { className?: string }) {
         <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
           <div className="p-4 bg-[#162149] text-white lg:hidden">
             <nav className="flex flex-col space-y-4">
-              <Link href="/home" onClick={toggleDrawer} className="text-white hover:text-blue-300">About us</Link>
-              <Link href="/about" onClick={toggleDrawer} className="text-white hover:text-blue-300">Why us?</Link>
-              <Link href="/services" onClick={toggleDrawer} className="text-white hover:text-blue-300">Commission</Link>
-              <Link href="/testimonials" onClick={toggleDrawer} className="text-white hover:text-blue-300">Testimonials</Link>
-              <Link href="/faq" onClick={toggleDrawer} className="text-white hover:text-blue-300">FAQ</Link>
-              <Link href="/contact" onClick={toggleDrawer} className="text-white hover:text-blue-300">Contact Us</Link>
+              <Link
+                href="/home"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                About us
+              </Link>
+              <Link
+                href="/about"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                Why us?
+              </Link>
+              <Link
+                href="/services"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                Commission
+              </Link>
+              <Link
+                href="/testimonials"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="/faq"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                FAQ
+              </Link>
+              <Link
+                href="/contact"
+                onClick={toggleDrawer}
+                className="text-white hover:text-blue-300"
+              >
+                Contact Us
+              </Link>
             </nav>
             <div className="my-5 gap-3">
               <Button className="bg-gradient-to-r from-indigo-900 to-indigo-400 hover:from-indigo-400 hover:to-indigo-900 text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px] mr-6">
