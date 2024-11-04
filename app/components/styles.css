@@ -10,3 +10,24 @@
 .rotate-negative {
   transform: rotate(-3deg);
 }
+
+@keyframes spin-once {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.spade-symbol {
+  font-size: 20rem; /* Adjust size as needed */
+  animation: spin-once 1s ease-in-out forwards; /* Spin once */
+  color: transparent; /* Keep the text transparent for the gradient */
+  background: radial-gradient(circle at 20%, #0687d1, #026db9, #013d67, #01152a); /* Strong blue gradient */
+  background-clip: text; /* Clip the background to the text */
+  -webkit-background-clip: text; /* For Safari */
+  position: relative; /* Required for pseudo-element */
+  text-shadow: 
+    0 0 130px rgba(195, 213, 250, 0.2);
+}

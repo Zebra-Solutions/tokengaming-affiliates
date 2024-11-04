@@ -32,12 +32,10 @@ interface SignInData {
 }
 
 export const ApiProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const apiBase = 'http://api-staging.devaff.softswiss.net/api';
+  const apiBase = 'https://demo.affilka.dev/api/v1';
 
   const getCasinoPolicy = useCallback(async () => {
-    return axios.get(`${apiBase}/client/partner/policy`, {
-      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-    });
+    return axios.get('/api/proxyPolicy');
   }, []);
 
   const getCasinoTerms = useCallback(async () => {
