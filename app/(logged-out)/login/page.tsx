@@ -24,9 +24,12 @@ import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import Image from "next/image";
+import Logo from "@/app/components/logo";
+import "./style.css";
+import GradientButton from "@/app/components/GradiantButton";
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -43,44 +46,28 @@ export default function LoginPage() {
     },
   });
 
-  const handleSocialLogin = async (provider: string) => {
-    try {
-      const response = await axios.post(
-        `http://localhost:8031/user/login/${provider}`,
-        {},
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  const handleSubmit = async (data: z.infer<typeof formSchema>) => {};
 
-      console.log(`${provider} login successful`, response.data);
-      router.push("/"); 
-    } catch (error: any) {
-      console.error(
-        `${provider} login failed`,
-        error.response ? error.response.data : error
-      );
-    }
-  };
+  const [isLogoVisible, setIsLogoVisible] = useState(false);
 
-  // Declare refreshTokenInterval variable
-  let refreshTokenInterval: NodeJS.Timeout | undefined;
-
-  const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-   
-  };
-
-  
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLogoVisible(true);
+    }, 100);
+  }, []);
 
   return (
     <>
-      <h1>Tokengaming Afiliate</h1>
-      <Card className="w-full max-w-sm bg-[#ffffff]">
+      <Logo
+        width={200}
+        className={`logo-animation ${isLogoVisible ? "visible" : ""}`}
+      />
+      <Card className="w-full max-w-sm bg-[#ffffff] shadow-md transition-transform duration-300 hover:scale-105 hover:shadow-lg">
         <CardHeader>
           <CardTitle>Login</CardTitle>
-          <CardDescription>Login to your Tokengaming Affiliate account</CardDescription>
+          <CardDescription>
+            Login to your Tokengaming Affiliate account
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <FormProvider {...form}>
@@ -120,9 +107,9 @@ export default function LoginPage() {
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="mt-4">
-                Login
-              </Button>
+              <GradientButton href="/">Sign up</GradientButton>
+                
+             
             </form>
           </FormProvider>
         </CardContent>

@@ -10,11 +10,13 @@ interface GradientButtonProps {
   hoverFromColor?: string;
   hoverToColor?: string;
   className?: string;
+  type?: string;
 }
 
 const GradientButton: React.FC<GradientButtonProps> = ({
   href,
   children,
+  type,
   fromColor = 'from-blue-900',
   toColor = 'to-blue-600',
   hoverFromColor = 'hover:from-blue-600',
@@ -26,7 +28,7 @@ const GradientButton: React.FC<GradientButtonProps> = ({
       asChild
       className={`bg-gradient-to-r ${fromColor} ${toColor} ${hoverFromColor} ${hoverToColor} text-white font-bold rounded-3xl transition duration-300 ease-in-out transform hover:scale-105 px-8 py-[9px] ${className}`}
     >
-      <Link href={href}>{children}</Link>
+      <Link href={href} type={type}>{children}</Link>
     </Button>
   );
 };

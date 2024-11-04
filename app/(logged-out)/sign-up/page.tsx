@@ -24,27 +24,24 @@ import { z } from "zod";
 import { PasswordInput } from "@/components/ui/password-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
+import Logo from "@/app/components/logo";
 
 const formSchema = z
   .object({
-    username: z
-      .string()
-      .min(3, "Username must be at least 3 characters long")
-      .max(50, "Username must not exceed 50 characters"),
-    password: z.string().min(6, "Password must be at least 6 characters long"),
-    passwordConfirm: z.string(),
+    company_name: z.string().min(1, "Company name is required"),
     email: z
       .string()
       .min(1, "Email is required")
       .regex(/^\S+@\S+\.\S+$/, "Invalid email format"),
-    existing_organization_id: z.union([z.string(), z.null()]).optional(),
-    acceptTerms: z
+    password: z.string().min(6, "Password must be at least 6 characters long"),
+    passwordConfirm: z.string(),
+    skype: z.string().optional(),
+    terms_accepted: z
       .boolean({
-        required_error: "You must accept terms and conditions",
+        required_error: "You must accept the terms and conditions",
       })
-      .refine((checked) => checked, "You must accept terms and conditions"),
+      .refine((val) => val, "You must accept the terms and conditions"),
   })
   .superRefine((data, ctx) => {
     if (data.password !== data.passwordConfirm) {
@@ -58,66 +55,82 @@ const formSchema = z
 
 export default function SignupPage() {
   const router = useRouter();
-  const [joinOrg, setJoinOrg] = useState(false);
+  const [isLogoVisible, setIsLogoVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      password: "",
+      company_name: "",
       email: "",
-      existing_organization_id: "",
+      password: "",
+      passwordConfirm: "",
+      skype: "",
+      terms_accepted: false,
     },
   });
 
-  console.log("Validation errors:", form.formState.errors);
-
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log("Inside handleSubmit"); // Debugging log
-    console.log("Form data to be submitted:", data);
+    setLoading(true);
+    setErrorMessage('');
 
     try {
-      const postData = {
-        username: data.username,
-        password: data.password,
-        email: data.email,
-        existing_organization_id: data.existing_organization_id || null,
-      };
+      const response = await axios.post("https://cors-anywhere.herokuapp.com/https://demo.affilka.dev/api/v1/client/partner", {
+        partner_user: {
+          company_name: data.company_name,
+          email: data.email,
+          password: data.password,
+          password_confirmation: data.passwordConfirm,
+          terms_accepted: data.terms_accepted,
+          skype: data.skype,
+        },
+      }, {
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+          "API-Key": "a18a417f7d59f623aa1e6ade55320238", // Hardcoded for demonstration
+          "API-Secret": "5ad839a1a82cdd3350f6aea32774af0c289a9bd83575a15c03fe5ba2e4d4396b", // Hardcoded for demonstration
+        },
+      });
 
-      // Log the data that will be sent in the request
-      console.log("Data sent to the API:", postData);
-
-      const response = await axios.post(
-        "http://localhost:8031/user/register",
-        postData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      console.log("User registered successfully", response.data);
-
-      router.push("/login");
-    } catch (error: any) {
-      console.error(
-        "Registration failed",
-        error.response ? error.response.data : error
-      );
+      if (response.status === 200) {
+        console.log("Signup successful:", response.data);
+        router.push("/success");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        setErrorMessage(error.response.data.message || "Error signing up.");
+      } else {
+        setErrorMessage("An unexpected error occurred.");
+      }
+    } finally {
+      setLoading(false);
     }
   };
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLogoVisible(true);
+    }, 100);
+    return () => clearTimeout(timer); // Cleanup timeout on unmount
+  }, []);
 
   return (
     <>
-     <h1>Tokengaming Affiliate</h1>
+      <Logo
+        width={200}
+        className={`logo-animation ${isLogoVisible ? "visible" : ""}`}
+      />
       <Card className="w-full max-w-sm">
         <CardHeader>
           <CardTitle>Sign up</CardTitle>
-          <CardDescription>
+          <CardDescription className="text-slate-600">
             Sign up for a new Tokengaming Affiliate account
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>}
           <FormProvider {...form}>
             <form
               className="flex flex-col gap-4"
@@ -130,12 +143,16 @@ export default function SignupPage() {
             >
               <FormField
                 control={form.control}
-                name="username"
+                name="company_name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>Company Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your username" type="text" {...field} />
+                      <Input
+                        placeholder="Enter your company name"
+                        type="text"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -149,7 +166,11 @@ export default function SignupPage() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your email" type="email" {...field} />
+                      <Input
+                        placeholder="Enter your email"
+                        type="email"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -163,7 +184,10 @@ export default function SignupPage() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <PasswordInput placeholder="Enter your password" {...field} />
+                      <PasswordInput
+                        placeholder="Enter your password"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -175,9 +199,12 @@ export default function SignupPage() {
                 name="passwordConfirm"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm password</FormLabel>
+                    <FormLabel>Confirm Password</FormLabel>
                     <FormControl>
-                      <PasswordInput placeholder="Enter your password" {...field} />
+                      <PasswordInput
+                        placeholder="Confirm your password"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -186,7 +213,25 @@ export default function SignupPage() {
 
               <FormField
                 control={form.control}
-                name="acceptTerms"
+                name="skype"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Skype (optional)</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter your Skype ID"
+                        type="text"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="terms_accepted"
                 render={({ field }) => (
                   <FormItem>
                     <div className="flex items-center space-x-2">
@@ -203,72 +248,11 @@ export default function SignupPage() {
                 )}
               />
 
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  checked={joinOrg}
-                  onCheckedChange={(checked) => setJoinOrg(checked === true)} // Adjust the value to a boolean
-                />
-                <label htmlFor="joinOrg">Join an existing organization?</label>
-              </div>
-
-              {joinOrg && (
-                <FormField
-                  control={form.control}
-                  name="existing_organization_id"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Organization ID</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Enter organization ID"
-                          type="text"
-                          {...field}
-                          value={field.value ?? ""} // Ensure the value is a string, not null
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              )}
-
-              <Button type="submit">Sign Up</Button>
+              <Button type="submit" disabled={loading}>
+                {loading ? "Signing up..." : "Sign up"}
+              </Button>
             </form>
           </FormProvider>
-
-          <div className="flex flex-col items-center gap-2 mt-4">
-            <p>Or sign up with:</p>
-            <div className="flex gap-2 mt-2">
-              <button
-                className="p-2 rounded-full bg-white border border-gray-300 hover:bg-gray-100"
-              >
-                <img src="/icons/google.svg" alt="Google" className="w-6 h-6" />
-              </button>
-              <button
-                className="p-2 rounded-full bg-white border border-gray-300 hover:bg-gray-100"
-              >
-                <img
-                  src="/icons/microsoft.svg"
-                  alt="Microsoft"
-                  className="w-6 h-6"
-                />
-              </button>
-              <button
-                className="p-2 rounded-full bg-white border border-gray-300 hover:bg-gray-100"
-              >
-                <img
-                  src="/icons/linkedin.svg"
-                  alt="LinkedIn"
-                  className="w-6 h-6"
-                />
-              </button>
-              <button
-                className="p-2 rounded-full bg-white border border-gray-300 hover:bg-gray-100"
-              >
-                <img src="/icons/github.svg" alt="GitHub" className="w-6 h-6" />
-              </button>
-            </div>
-          </div>
         </CardContent>
         <CardFooter>
           <Link href="/login">Already have an account? Log in</Link>

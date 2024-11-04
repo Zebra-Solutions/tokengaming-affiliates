@@ -5,7 +5,7 @@ import FAQ from "./components/FAQ";
 import Divider from "./components/Divider";
 import Join from "./components/Join";
 import Testimonials from "./components/Testimonials";
-import ContactUs from "./components/ContactUs";
+import ContactUs from "./components/contact-us";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
         <FAQ />
         <Divider reverse />
         <ContactUs />
-        <Divider  />
+       
         <Footer/>
         {/* </div> */}
       </div>

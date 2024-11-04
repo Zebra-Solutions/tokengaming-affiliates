@@ -49,9 +49,10 @@ export default function Header({ className = "" }: { className?: string }) {
           <GradientButton href="/sign-up">Sign up</GradientButton>
           <Button
             asChild
-            className="bg-[#161617] text-blue-600 border border-blue-600 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white"
+            variant="outline"
+            className=" rounded-3xl py-2 px-10 transition duration-300 ease-in-out"
           >
-            <Link href="/login">Log in</Link>
+            <Link href="/login" >Log in</Link>
           </Button>
         </div>
       </div>
@@ -59,8 +60,8 @@ export default function Header({ className = "" }: { className?: string }) {
       {/* Drawer for Medium and Smaller Screens */}
       {drawerOpen && (
         <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <div className="p-4 bg-[#162149] text-white lg:hidden">
-            <nav className="flex flex-col space-y-4">
+          <div className="p-4 bg-[#1a1a1c] text-white lg:hidden">
+            <nav className="flex flex-col space-y-4 items-center">
               <Link
                 href="/home"
                 onClick={toggleDrawer}
@@ -104,9 +105,9 @@ export default function Header({ className = "" }: { className?: string }) {
                 Contact Us
               </Link>
             </nav>
-            <div className="my-5 gap-3">
-            <GradientButton href="/sign-up">Sign up</GradientButton>
-              <Button  className="bg-[#161617] text-blue-600 border border-blue-600 rounded-3xl py-2 px-10 transition duration-300 ease-in-out hover:bg-blue-600 hover:text-white">
+            <div className="my-5 justify-center">
+            <GradientButton href="/sign-up" className="mr-3">Sign up</GradientButton>
+              <Button variant='outline' className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900">
                 Log in
               </Button>
             </div>

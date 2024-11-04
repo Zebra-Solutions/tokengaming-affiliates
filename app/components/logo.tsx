@@ -16,7 +16,6 @@ const Logo: React.FC<LogoProps> = ({ width = 150, height = 50, className }) => {
         fill
         sizes="(max-width: 640px) 100vw, 50vw"
         className="object-contain"
-        priority
       />
     </div>
   );
