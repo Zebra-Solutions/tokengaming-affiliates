@@ -12,22 +12,58 @@
 }
 
 @keyframes spin-once {
-  from {
-    transform: rotateY(0deg);
+  0% {
+    transform: rotateY(0deg) scale(1);
   }
-  to {
-    transform: rotateY(360deg);
+  50% {
+    transform: rotateY(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotateY(360deg) scale(1);
   }
 }
 
 .spade-symbol {
-  font-size: 20rem; /* Adjust size as needed */
-  animation: spin-once 1s ease-in-out forwards; /* Spin once */
+  font-size: 20rem;
+  animation: spin-once 1.5s ease-in-out forwards;
+  animation-delay: 1.5s;
   color: transparent; /* Keep the text transparent for the gradient */
-  background: radial-gradient(circle at 20%, #0687d1, #026db9, #013d67, #01152a); /* Strong blue gradient */
+  background: radial-gradient(circle at 20%, #0687d1, #026db9, #013d67, #01152a);
   background-clip: text; /* Clip the background to the text */
   -webkit-background-clip: text; /* For Safari */
   position: relative; /* Required for pseudo-element */
   text-shadow: 
     0 0 130px rgba(195, 213, 250, 0.2);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slide-in 1.5s ease forwards;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.slide-in-pulse {
+  animation: slide-in 1.5s ease forwards, pulse 0.5s ease forwards;
+  animation-delay: 0s, 3s; /* Start pulse after slide-in is complete */
 }
