@@ -4,25 +4,25 @@ const Testimonials: React.FC = () => {
       title: "Card 1",
       description: "This is the description for card 1.",
       bgImage: "/cardblue4.jpg",
-      symbol: '/symbol1.jpg',
+      symbol: '/symbol1.png',
     },
     {
       title: "Card 2",
       description: "This is the description for card 2.",
       bgImage: "/cardblue5.jpg",
-      symbol: '/symbol2.jpg',
+      symbol: '/symbol2.png',
     },
     {
       title: "Card 3",
       description: "This is the description for card 3.",
       bgImage: "/cardblue6.jpg",
-      symbol: '/symbol3.jpg',
+      symbol: '/symbol3.png',
     },
     {
       title: "Card 4",
       description: "This is the description for card 4.",
       bgImage: "/cardblue7.jpg",
-      symbol: '/symbol4.jpg',
+      symbol: '/symbol4.png',
     },
   ];
 

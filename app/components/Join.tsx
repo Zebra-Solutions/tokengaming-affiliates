@@ -17,8 +17,8 @@ const Join: React.FC = () => {
       </div>
       <div className="flex justify-center items-center w-full md:w-1/2 px-40 mb-8 md:mb-0">
         <div className="spade-symbol relative inset-0 flex justify-center items-center z-0">
-          <p className="text-transparent text-[22rem] absolute -bottom-10">
-            .
+          <p className="text-transparent text-[22rem] absolute -bottom-32">
+            v
           </p>
           {
             <svg

@@ -1,7 +1,7 @@
 "use client";
 
 import bgblue2 from '../../public/bgblue2.jpg';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const faqs = [
   { question: "How do I become an Affiliate?", answer: "Lorem ipsum dolor sit amet..." },
@@ -23,13 +23,40 @@ const symbols = [
 
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [visibleQuestions, setVisibleQuestions] = useState<number>(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const faqRef = useRef<HTMLDivElement | null>(null);
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);  // Ensure animation runs only once
+          let questionCount = 0;
+          const interval = setInterval(() => {
+            setVisibleQuestions((prev) => prev + 1);
+            questionCount++;
+            if (questionCount >= faqs.length) clearInterval(interval);
+          }, 150); // Adjust delay as needed
+        }
+      },
+      { threshold: 0.3 } // Trigger when 30% of FAQ section is visible
+    );
+
+    if (faqRef.current) observer.observe(faqRef.current);
+
+    return () => {
+      if (faqRef.current) observer.unobserve(faqRef.current);
+    };
+  }, [hasAnimated]);
+
   return (
-    <section id="faq" className="py-20 px-0 bg-[#161617] text-gray-50">
+    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#161617] text-gray-50">
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
         style={{
@@ -54,7 +81,13 @@ const FAQ: React.FC = () => {
           {faqs.map((faq, index) => {
             const { symbol, color } = symbols[index % symbols.length]; // Cycle through symbols
             return (
-              <div key={index} className="border-b border-gray-300 mb-4 pb-4">
+              <div
+                key={index}
+                className={`border-b border-gray-300 mb-4 pb-4 transition-opacity duration-500 ${
+                  index < visibleQuestions ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }} // Staggered delay
+              >
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full text-left flex items-center justify-between text-lg md:text-base font-semibold text-gray-200"
