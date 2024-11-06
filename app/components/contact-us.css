@@ -2,18 +2,18 @@
 
 @keyframes blueGradient {
   0% {
-    opacity: 0.3;
+    opacity: 0.0;
   }
   50% {
     opacity: 0.8;
   }
   100% {
-    opacity: 0.3;
+    opacity: 0.0;
   }
 }
 
 .animate-blue-gradient {
-  background: linear-gradient(to top, rgba(8, 8, 233, 0.581), transparent);
+  background: linear-gradient(to top, rgba(8, 8, 233, 0.53), transparent);
   animation: blueGradient 3s ease-in-out infinite;
 }
 
