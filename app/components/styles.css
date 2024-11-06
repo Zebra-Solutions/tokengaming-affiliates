@@ -37,7 +37,6 @@
   fill: url(#spade-gradient); /* Link to the gradient defined in SVG */
 }
 
-
 @keyframes slide-in {
   from {
     transform: translateX(-100%);
@@ -68,4 +67,8 @@
 .slide-in-pulse {
   animation: slide-in 1.5s ease forwards, pulse 0.5s ease forwards;
   animation-delay: 0s, 3s; /* Start pulse after slide-in is complete */
+}
+
+.shadowtitle {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
