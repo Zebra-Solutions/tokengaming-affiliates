@@ -1,6 +1,6 @@
 "use client";
 
-import bgblue2 from '../../public/bgblue2.jpg';
+import bgblue from '../../public/bgblue13.jpg';
 import { useState, useEffect, useRef } from "react";
 
 const faqs = [
@@ -15,10 +15,10 @@ const faqs = [
 ];
 
 const symbols = [
-  { symbol: "♠", color: "text-black" },
-  { symbol: "♦", color: "text-pink-500" },
-  { symbol: "♣", color: "text-black" },
-  { symbol: "♥", color: "text-pink-500" },
+  { symbol: '/symbol1.png', color: "text-black" },
+  { symbol: '/symbol2.png', color: "text-pink-500" },
+  { symbol: '/symbol3.png', color: "text-black" },
+  { symbol: '/symbol4.png', color: "text-pink-500" },
 ];
 
 const FAQ: React.FC = () => {
@@ -56,20 +56,20 @@ const FAQ: React.FC = () => {
   }, [hasAnimated]);
 
   return (
-    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#161617] text-gray-50">
+    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#020212] text-gray-50">
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
         style={{
-          backgroundImage: `url(${bgblue2.src})`,
+          backgroundImage: `url(${bgblue.src})`,
           backgroundBlendMode: "overlay",
-          backgroundColor: "rgba(255, 255, 255, 0.05)",
+          backgroundColor: "rgba(0, 0, 0, 0.85)",
         }}
       >
         {/* Top Fade */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020212] to-transparent"></div>
         
         {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#161617] to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#020212] to-transparent"></div>
 
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs
@@ -93,7 +93,7 @@ const FAQ: React.FC = () => {
                   className="w-full text-left flex items-center justify-between text-lg md:text-base font-semibold text-gray-200"
                 >
                   <div className="flex items-center">
-                    <span className={`mr-2 ${color} text-2xl`}>{symbol}</span>
+                    <span className={`mr-2 ${color} text-2xl`}><img src={symbol} alt="Symbol" className="w-10 h-10 rounded-full"/></span>
                     <span>{faq.question}</span>
                   </div>
                   <span

@@ -3,9 +3,8 @@ import "./styles.css";
 const Banner: React.FC = () => {
   return (
     <section
-      id="join"
       style={{ height: `calc(100vh - 250px)` }}
-      className="py-20 bg-[#161617]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
+      className="py-20 bg-[#020212]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
     >
       <div className="w-full md:w-1/2 text-left md:text-right px-8 mb-8 md:mb-0">
         <p className="text-gray-200 text-5xl text-left md:text-right slide-in pb-6">

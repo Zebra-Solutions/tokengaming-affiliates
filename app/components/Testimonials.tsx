@@ -27,7 +27,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 px-4 bg-[#161617] text-gray-50">
+    <section id="testimonials" className="py-20 px-4 bg-[#020212] text-gray-50">
       <h2 className="text-3xl font-bold text-center mb-24">Testimonials</h2>
 
       <div className="flex justify-center">
@@ -40,7 +40,7 @@ const Testimonials: React.FC = () => {
               /* backgroundImage: `url(${card.bgImage})`, */
               backgroundSize: "cover",
               backgroundBlendMode: "overlay",
-              backgroundColor: "rgba(0, 0, 55, 0.2)",
+              backgroundColor: "rgba(0, 0, 100, 0.2)",
             }}
           >
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

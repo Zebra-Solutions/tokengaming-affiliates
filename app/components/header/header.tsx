@@ -23,11 +23,11 @@ export default function Header({ className = "" }: { className?: string }) {
           "fixed top-0 w-full flex justify-between items-center p-4 border-b border-border z-50 shadow-xl lg:px-20 overflow-hidden",
           className
         )}
-        style={{ backgroundColor: "#161617", height: "80px" }} // Specify height here
+        style={{ backgroundColor: "#000", height: "80px" }} // Specify height here
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <Logo width={170} />
+          <NavLink href='/'><Logo width={170} /></NavLink>
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4 ml-10">

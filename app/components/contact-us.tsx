@@ -24,7 +24,7 @@ const ContactUs: React.FC = () => {
         backgroundImage: `url("https://tokengaming.fra1.cdn.digitaloceanspaces.com/packages/media/theme/tokengaming/banners/landing-hero-desktop.webp")`,
       }}
     >
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020212] to-transparent"></div>
 
       {/* Animated blue gradient overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-32 animate-blue-gradient "></div>
