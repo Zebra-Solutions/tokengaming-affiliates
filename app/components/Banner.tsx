@@ -1,10 +1,11 @@
 import "./styles.css";
 
-const Join: React.FC = () => {
+const Banner: React.FC = () => {
   return (
     <section
       id="join"
-      className="py-20 bg-[#161617] text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
+      style={{ height: `calc(100vh - 250px)` }}
+      className="py-20 bg-[#161617]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
     >
       <div className="w-full md:w-1/2 text-left md:text-right px-8 mb-8 md:mb-0">
         <p className="text-gray-200 text-5xl text-left md:text-right slide-in pb-6">
@@ -19,8 +20,8 @@ const Join: React.FC = () => {
         <div className="spade-symbol relative inset-0 flex justify-center items-center z-0">
           <p className="text-transparent text-[22rem] absolute -bottom-32">v</p>
           <svg
-            width="144"
-            height="180"
+            width="180" 
+            height="225" 
             viewBox="0 0 24 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -55,4 +56,4 @@ const Join: React.FC = () => {
   );
 };
 
-export default Join;
+export default Banner;
