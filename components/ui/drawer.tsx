@@ -1,13 +1,15 @@
 import * as React from "react";
-// @ts-ignore
 import { Drawer as DrawerPrimitive } from "vaul";
-
 import { cn } from "@/lib/utils";
 
+// Context for drawer direction and close handler
 export const DrawerContext = React.createContext<{
   direction?: "top" | "bottom" | "left" | "right";
   onClose?: () => void;
-}>({});
+}>({
+  direction: "bottom", // Default direction
+  onClose: () => {},    // Default empty function
+});
 
 const Drawer = ({
   open,
@@ -34,12 +36,24 @@ const DrawerClose = DrawerPrimitive.Close;
 
 const DrawerOverlay = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay> & {
+    onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void; // Explicit typing for onClick
+  }
+>(({ className, onClick, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
     className={cn("fixed inset-0 z-50 bg-black/80", className)}
     {...props}
+    onClick={(e) => {
+      // Close the drawer if the overlay is clicked
+      if (e.target === e.currentTarget) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (onClick) {
+          onClick(e); // Call the provided onClick prop if it exists
+        }
+      }
+    }}
   />
 ));
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;

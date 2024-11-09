@@ -18,12 +18,12 @@ export default function Header({ className = "" }: { className?: string }) {
 
   return (
     <>
-      <div
+      <header
         className={clsx(
-          "flex justify-between items-center p-4 border-b border-border sticky top-0 z-10 shadow-xl lg:px-20",
+          "fixed top-0 w-full flex justify-between items-center p-4 border-b border-border z-50 shadow-xl lg:px-20 overflow-hidden",
           className
         )}
-        style={{ backgroundColor: "#161617" }}
+        style={{ backgroundColor: "#161617", height: "80px" }} // Specify height here
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
@@ -50,70 +50,71 @@ export default function Header({ className = "" }: { className?: string }) {
           <Button
             asChild
             variant="outline"
-            className=" rounded-3xl py-2 px-10 transition duration-300 ease-in-out"
+            className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out"
           >
-            <Link href="/login" >Log in</Link>
+            <Link href="/login">Log in</Link>
           </Button>
         </div>
-      </div>
+      </header>
 
-      {/* Drawer for Medium and Smaller Screens */}
-      {drawerOpen && (
-        <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
-          <div className="p-4 bg-[#1a1a1c] text-white lg:hidden">
-            <nav className="flex flex-col space-y-4 items-center">
-              <Link
-                href="/home"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                About us
-              </Link>
-              <Link
-                href="/about"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                Why us?
-              </Link>
-              <Link
-                href="/services"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                Commission
-              </Link>
-              <Link
-                href="/testimonials"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="/faq"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                FAQ
-              </Link>
-              <Link
-                href="/contact"
-                onClick={toggleDrawer}
-                className="text-white hover:text-blue-300"
-              >
-                Contact Us
-              </Link>
-            </nav>
-            <div className="my-5 justify-center">
-            <GradientButton href="/sign-up" className="mr-3">Sign up</GradientButton>
-              <Button variant='outline' className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900">
-                Log in
-              </Button>
+      {/* Main content wrapper with padding-top to account for fixed header height */}
+      <main style={{ paddingTop: "80px" }}>
+        {/* Drawer for Medium and Smaller Screens */}
+        {drawerOpen && (
+          <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
+            <div className="fixed left-0 w-full p-4 bg-[#141419] text-white lg:hidden z-40 overflow-auto">
+              <nav className="flex flex-col space-y-4 items-center">
+                <NavLink
+                  href="#home"
+                  onClick={toggleDrawer}
+                  className="text-white hover:text-blue-300"
+                >
+                  About Us
+                </NavLink>
+                <NavLink
+                  href="#about"
+                  onClick={toggleDrawer}
+                  className="text-white hover:text-blue-300"
+                >
+                  Why Us?
+                </NavLink>
+                <NavLink
+                  href="#testimonials"
+                  onClick={toggleDrawer}
+                  className="text-white hover:text-blue-300"
+                >
+                  Testimonials
+                </NavLink>
+                <NavLink
+                  href="#faq"
+                  onClick={toggleDrawer}
+                  className="text-white hover:text-blue-300"
+                >
+                  FAQ
+                </NavLink>
+                <NavLink
+                  href="#contact"
+                  onClick={toggleDrawer}
+                  className="text-white hover:text-blue-300"
+                >
+                  Contact Us
+                </NavLink>
+              </nav>
+              <div className="my-5 justify-center">
+                <GradientButton href="/sign-up" className="mr-3">
+                  Sign up
+                </GradientButton>
+                <Button
+                  variant="outline"
+                  className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900"
+                >
+                  Log in
+                </Button>
+              </div>
             </div>
-          </div>
-        </Drawer>
-      )}
+          </Drawer>
+        )}
+      </main>
     </>
   );
 }

@@ -11,7 +11,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Join: React.FC = () => {
+const ContactUs: React.FC = () => {
   return (
     <section
       id="contact"
@@ -27,10 +27,10 @@ const Join: React.FC = () => {
       <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
 
       {/* Animated blue gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 animate-blue-gradient z-30"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 animate-blue-gradient "></div>
 
       {/* Content under the header */}
-      <div className="w-full max-w-screen-xl mx-auto p-6 lg:p-10">
+      <div className="w-full max-w-screen-xl mx-auto p-6 lg:p-12">
         <div className="flex flex-col lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-10 bg-transparent bg-opacity-50 rounded-md relative">
           {/* Left Column */}
           <div className="w-full lg:w-1/2 space-y-6">
@@ -72,7 +72,7 @@ const Join: React.FC = () => {
                     <FontAwesomeIcon
                       icon={faTwitter}
                       width={25}
-                      className="hover:text-blue-600cursor-pointer"
+                      className="hover:text-blue-600 cursor-pointer"
                     />
                     <FontAwesomeIcon
                       icon={faInstagram}
@@ -134,4 +134,4 @@ const Join: React.FC = () => {
   );
 };
 
-export default Join;
+export default ContactUs;
