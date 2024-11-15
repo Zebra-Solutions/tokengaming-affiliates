@@ -27,7 +27,9 @@ export default function Header({ className = "" }: { className?: string }) {
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <NavLink href='/'><Logo width={170} /></NavLink>
+          <NavLink href="/">
+            <Logo width={170} />
+          </NavLink>
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4 ml-10">
@@ -100,7 +102,7 @@ export default function Header({ className = "" }: { className?: string }) {
                   Contact Us
                 </NavLink>
               </nav>
-              <div className="my-5 justify-center">
+              <div className="my-5 flex justify-center items-center">
                 <GradientButton href="/sign-up" className="mr-3">
                   Sign up
                 </GradientButton>

@@ -1,4 +1,6 @@
+import Link from "next/link";
 import "./styles.css";
+import { Button } from "@/components/ui/button";
 
 const Banner: React.FC = () => {
   return (
@@ -7,20 +9,41 @@ const Banner: React.FC = () => {
       className="py-20 bg-[#020212]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
     >
       <div className="w-full md:w-1/2 text-left md:text-right px-8 mb-8 md:mb-0">
-        <p className="text-gray-200 text-5xl text-left md:text-right slide-in pb-6">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus
-          perferendis?
+        <p className="text-gray-200 text-5xl text-left md:text-right pb-6">
+          <span className="zoom-in-out mr-1" style={{ animationDelay: "0s" }}>
+            Promote.
+          </span>
+          <span className="zoom-in-out mr-1" style={{ animationDelay: "1s" }}>
+            Share.
+          </span>
+          <span className="zoom-in-out mr-1" style={{ animationDelay: "2s" }}>
+            Earn.
+          </span>
+          <span className="wave-text">
+            {Array.from(
+              "Join our affiliate program and watch your profits grow!"
+            ).map((char, i) => (
+              <span
+                key={i}
+                className="wave-letter"
+                style={{ animationDelay: `${2.5 + i * 0.1}s` }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+          </span>
         </p>
-        <button className="px-6 py-3 mt-4 text-center bg-blue-600 text-white font-bold rounded-md hover:bg-blue-800 transition slide-in-pulse">
-          JOIN NOW
-        </button>
+        <Button style={{ animationDelay: "8s" }} className="zoom-in-out-button px-6 py-3 mt-4 text-center bg-blue-600 text-white font-bold rounded-md hover:bg-blue-800 transition" asChild>
+        <Link href='/sign-up' >JOIN NOW</Link>  
+        </Button>
       </div>
+
       <div className="flex justify-center items-center w-full md:w-1/2 px-40 mb-8 md:mb-0">
         <div className="spade-symbol relative inset-0 flex justify-center items-center z-0">
           <p className="text-transparent text-[22rem] absolute -bottom-32">v</p>
           <svg
-            width="180" 
-            height="225" 
+            width="180"
+            height="225"
             viewBox="0 0 24 30"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
