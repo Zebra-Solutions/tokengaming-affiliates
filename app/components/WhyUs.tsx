@@ -68,7 +68,7 @@ const WhyUs: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-[#020212] text-gray-50 flex flex-col items-center"
+      className="py-20 bg-[#090909] text-gray-50 flex flex-col items-center"
     >
       {/* Title Section */}
       <div className="w-full text-center px-8 mb-8">

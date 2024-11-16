@@ -14,7 +14,7 @@ export default function Home() {
     <div className="w-full">
       <Header />
       <div
-        className="bg-[#020212] pt-[80px]" // Add padding-top matching header height
+        className="bg-[#090909] pt-[80px]" // Add padding-top matching header height
       >
         <Banner />
         <BannerCarousel/>

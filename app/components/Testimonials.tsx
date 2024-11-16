@@ -27,7 +27,7 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-20 px-4 bg-[#020212] text-gray-50">
+    <section id="testimonials" className="py-20 px-4 bg-[#090909] text-gray-50">
       <h2 className="text-3xl font-bold text-center mb-24">Testimonials</h2>
 
       <div className="flex justify-center">

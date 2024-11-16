@@ -1,5 +1,5 @@
 .neon-line {
-  box-shadow: 0 0 3px #3E5AD1, 0 0 3px #3E5AD1, 0 0 3px #3E5AD1;
+  box-shadow: 0 0 3px #3e5ad1, 0 0 3px #3e5ad1, 0 0 3px #3e5ad1;
   transform-origin: center;
 }
 
@@ -9,6 +9,11 @@
 
 .rotate-negative {
   transform: rotate(-3deg);
+}
+
+.main-font {
+  font-family: "Archivo Black";
+  font-weight: 600;
 }
 
 @keyframes spin-once {
@@ -74,7 +79,8 @@
 }
 
 .shadowtitle {
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .zoom-in-out {
@@ -99,11 +105,16 @@
 }
 
 .wave-text {
-  display: inline-block;
+  display: inline; /* Ensures wrapping for the entire text */
+  white-space: normal; /* Allows text to wrap naturally */
+}
+
+.wave-word {
+  display: inline-block; /* Ensures words remain intact as units */
 }
 
 .wave-letter {
-  display: inline-block;
+  display: inline-block; /* Animates each letter individually */
   animation: waveEffect 0.5s ease-in-out forwards;
 }
 
@@ -127,10 +138,12 @@
 }
 
 @keyframes zoomInOutButton {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
-  25%, 75% {
+  25%,
+  75% {
     transform: scale(1.2);
   }
   50% {

@@ -6,35 +6,49 @@ const Banner: React.FC = () => {
   return (
     <section
       style={{ height: `calc(100vh - 250px)` }}
-      className="py-20 bg-[#020212]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center"
+      className="py-20 bg-[#090909]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center main-font"
     >
       <div className="w-full md:w-1/2 text-left md:text-right px-8 mb-8 md:mb-0">
-        <p className="text-gray-200 text-5xl text-left md:text-right pb-6">
-          <span className="zoom-in-out mr-1" style={{ animationDelay: "0s" }}>
+        <p className="text-gray-200 text-4xl md:text-5xl text-left md:text-right pb-6">
+          <span className="zoom-in-out mr-3" style={{ animationDelay: "0s" }}>
             Promote.
           </span>
-          <span className="zoom-in-out mr-1" style={{ animationDelay: "1s" }}>
+          <span className="zoom-in-out mr-3" style={{ animationDelay: "1s" }}>
             Share.
           </span>
-          <span className="zoom-in-out mr-1" style={{ animationDelay: "2s" }}>
+          <span className="zoom-in-out mr-3" style={{ animationDelay: "2s" }}>
             Earn.
           </span>
+          <br></br>
           <span className="wave-text">
-            {Array.from(
-              "Join our affiliate program and watch your profits grow!"
-            ).map((char, i) => (
-              <span
-                key={i}
-                className="wave-letter"
-                style={{ animationDelay: `${2.5 + i * 0.1}s` }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
+            {"Join our affiliate program and watch your profits grow!"
+              .split(" ")
+              .map((word, wordIndex) => (
+                <span key={wordIndex} className="wave-word">
+                  {Array.from(word).map((char, charIndex) => (
+                    <span
+                      key={charIndex}
+                      className="wave-letter"
+                      style={{
+                        animationDelay: `${
+                          2.5 + wordIndex * 0.5 + charIndex * 0.1
+                        }s`,
+                      }}
+                    >
+                      {char}
+                    </span>
+                  ))}
+                  &nbsp; {/* Ensures proper spacing between words */}
+                </span>
+              ))}
           </span>
         </p>
-        <Button style={{ animationDelay: "8s" }} className="zoom-in-out-button px-6 py-3 mt-4 text-center bg-blue-600 text-white font-bold rounded-md hover:bg-blue-800 transition" asChild>
-        <Link href='/sign-up' >JOIN NOW</Link>  
+        <Button
+          style={{ animationDelay: "8s" }}
+          className="zoom-in-out-button px-6 py-3 mt-4 text-center bg-blue-600 text-white font-bold rounded-md hover:bg-blue-800 transition"
+          asChild
+        >
+          <Link href="/sign-up">JOIN NOW</Link>
         </Button>
       </div>
 

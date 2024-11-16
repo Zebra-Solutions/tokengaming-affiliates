@@ -56,7 +56,7 @@ const FAQ: React.FC = () => {
   }, [hasAnimated]);
 
   return (
-    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#020212] text-gray-50">
+    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#090909] text-gray-50">
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
         style={{
@@ -66,10 +66,10 @@ const FAQ: React.FC = () => {
         }}
       >
         {/* Top Fade */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#020212] to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#090909] to-transparent"></div>
         
         {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#020212] to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#090909] to-transparent"></div>
 
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs
