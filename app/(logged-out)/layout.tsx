@@ -1,5 +1,5 @@
 
-import logBG from '@/public/card2.jpg'
+import logBG from '@/public/Cardblue1.jpg'
 type Props = {
   children?: React.ReactNode;
 };

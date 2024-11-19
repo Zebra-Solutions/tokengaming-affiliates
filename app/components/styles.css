@@ -16,6 +16,14 @@
   font-weight: 600;
 }
 
+.cards {
+  border-radius: 10px;
+  border: 1px solid var(--Teal-Blue, #2c343d);
+  background: #1e2227;
+  box-shadow: -4px -4px 11px 0 hsla(0, 0%, 100%, 0.06),
+    4px 4px 10px 0 rgba(0, 0, 0, 0.5);
+}
+
 @keyframes spin-once {
   0% {
     transform: rotateY(0deg) scale(1);
