@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-
+import "./styles.css";
 const Slider = dynamic(() => import("react-slick"), { ssr: false });
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -36,7 +36,7 @@ export default function BannerCarousel() {
   ];
 
   return (
-    <div className="relative h-24 w-full bg-gradient-to-r from-blue-800 to-blue-900 opacity-90 rounded-lg shadow-xl transform transition duration-300 hover:scale-105 hover:opacity-100 overflow-hidden">
+    <div className="relative h-24 w-full bg-gradient-to-r from-blue-800 to-blue-900 opacity-90 rounded-lg shadow-xl transform transition duration-300 hover:scale-105 hover:opacity-100 overflow-hidden smalldevice">
       <div className="w-full h-8 bg-gradient-to-b from-black/30 to-transparent"></div>
 
       <div className="w-full">

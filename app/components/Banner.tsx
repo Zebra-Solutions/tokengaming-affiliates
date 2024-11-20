@@ -9,7 +9,7 @@ const Banner: React.FC = () => {
       className="py-20 bg-[#090909]  text-gray-50 flex flex-col-reverse md:flex-row items-center justify-center main-font"
     >
       <div className="w-full md:w-1/2 text-left md:text-right px-8 mb-8 md:mb-0">
-        <p className="text-gray-200 text-4xl md:text-5xl text-left md:text-right pb-6">
+        <p className="text-gray-200 text-4xl md:text-5xl text-left md:text-right pb-6 resizetext">
           <span className="zoom-in-out mr-3" style={{ animationDelay: "0s" }}>
             Promote.
           </span>
