@@ -27,8 +27,8 @@ export default function Header({ className = "" }: { className?: string }) {
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <NavLink href="/">
-            <Logo width={170} />
+          <NavLink href="/" className="mt-9">
+            <Logo />
           </NavLink>
 
           {/* Navigation Links (Visible on large screens and above) */}

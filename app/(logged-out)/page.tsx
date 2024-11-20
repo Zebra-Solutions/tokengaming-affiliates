@@ -9,7 +9,7 @@ export default function LandingPage() {
         src="/logo.png" // Path to your image
         alt="Description of the image" // Alt text for accessibility
         width={200} // Desired width in pixels
-        height={90} // Desired height in pixels
+        height={200} // Desired height in pixels
         priority
       />
       <p className="text-center">BonusTracker.io is a game-changer in the iGaming world.</p>

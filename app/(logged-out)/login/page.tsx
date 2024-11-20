@@ -1,5 +1,4 @@
 "use client";
-import { AxiosError } from "axios";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,13 +19,9 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
-import Image from "next/image";
 import Logo from "@/app/components/logo";
 import "./style.css";
 import GradientButton from "@/app/components/GradiantButton";
@@ -37,7 +32,6 @@ const formSchema = z.object({
 });
 
 export default function LoginPage() {
-  const router = useRouter();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,7 +40,7 @@ export default function LoginPage() {
     },
   });
 
-  const handleSubmit = async (data: z.infer<typeof formSchema>) => {};
+  const handleSubmit = async () => {};
 
   const [isLogoVisible, setIsLogoVisible] = useState(false);
 
@@ -114,7 +108,7 @@ export default function LoginPage() {
           </FormProvider>
         </CardContent>
         <CardFooter className="justify-between">
-          <small>Don't have an account?</small>
+          <small>Do not have an account?</small>
           <Button asChild variant="outline" size="sm">
             <Link href="/sign-up">Sign up</Link>
           </Button>

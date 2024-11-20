@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const Testimonials: React.FC = () => {
   const cards = [
     {
@@ -39,10 +41,13 @@ const Testimonials: React.FC = () => {
             >
               {/* Floating Symbol */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <img
+                <Image
                   src={card.symbol}
+                  width={80} // Matches w-10
+                  height={80} // Matches h-10
                   alt="Symbol"
                   className="w-24 h-24 rounded-full shadow-md"
+                  unoptimized
                 />
               </div>
 

@@ -1,24 +1,49 @@
 "use client";
 
-import bgblue from '../../public/bgblue13.jpg';
+import Image from "next/image";
+import bgblue from "../../public/bgblue13.jpg";
 import { useState, useEffect, useRef } from "react";
 
 const faqs = [
-  { question: "How do I become an Affiliate?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "Is this Program free?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "How often are my statistics updated?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "How is my affiliate commission calculated?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "When will I receive my commission?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "Do you have Negative Carry-Over?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "What if I have more than one website?", answer: "Lorem ipsum dolor sit amet..." },
-  { question: "How long are cookies stored?", answer: "Lorem ipsum dolor sit amet..." },
+  {
+    question: "How do I become an Affiliate?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "Is this Program free?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "How often are my statistics updated?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "How is my affiliate commission calculated?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "When will I receive my commission?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "Do you have Negative Carry-Over?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "What if I have more than one website?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
+  {
+    question: "How long are cookies stored?",
+    answer: "Lorem ipsum dolor sit amet...",
+  },
 ];
 
 const symbols = [
-  { symbol: '/symbol1.png', color: "text-black" },
-  { symbol: '/symbol2.png', color: "text-pink-500" },
-  { symbol: '/symbol3.png', color: "text-black" },
-  { symbol: '/symbol4.png', color: "text-pink-500" },
+  { symbol: "/symbol1.png", color: "text-black" },
+  { symbol: "/symbol2.png", color: "text-pink-500" },
+  { symbol: "/symbol3.png", color: "text-black" },
+  { symbol: "/symbol4.png", color: "text-pink-500" },
 ];
 
 const FAQ: React.FC = () => {
@@ -36,7 +61,7 @@ const FAQ: React.FC = () => {
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);  // Ensure animation runs only once
+          setHasAnimated(true); // Ensure animation runs only once
           let questionCount = 0;
           const interval = setInterval(() => {
             setVisibleQuestions((prev) => prev + 1);
@@ -47,16 +72,22 @@ const FAQ: React.FC = () => {
       },
       { threshold: 0.3 } // Trigger when 30% of FAQ section is visible
     );
-
-    if (faqRef.current) observer.observe(faqRef.current);
-
+  
+    const currentFaqRef = faqRef.current; // Store the ref value in a variable
+    if (currentFaqRef) observer.observe(currentFaqRef);
+  
     return () => {
-      if (faqRef.current) observer.unobserve(faqRef.current);
+      if (currentFaqRef) observer.unobserve(currentFaqRef); // Use the stored value here
     };
   }, [hasAnimated]);
+  
 
   return (
-    <section ref={faqRef} id="faq" className="py-20 px-0 bg-[#090909] text-gray-50">
+    <section
+      ref={faqRef}
+      id="faq"
+      className="py-20 px-0 bg-[#090909] text-gray-50"
+    >
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
         style={{
@@ -67,7 +98,7 @@ const FAQ: React.FC = () => {
       >
         {/* Top Fade */}
         <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#090909] to-transparent"></div>
-        
+
         {/* Bottom Fade */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#090909] to-transparent"></div>
 
@@ -84,7 +115,7 @@ const FAQ: React.FC = () => {
               <div
                 key={index}
                 className={`border-b border-gray-300 mb-4 pb-4 transition-opacity duration-500 ${
-                  index < visibleQuestions ? 'opacity-100' : 'opacity-0'
+                  index < visibleQuestions ? "opacity-100" : "opacity-0"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }} // Staggered delay
               >
@@ -93,7 +124,16 @@ const FAQ: React.FC = () => {
                   className="w-full text-left flex items-center justify-between text-lg md:text-base font-semibold text-gray-200"
                 >
                   <div className="flex items-center">
-                    <span className={`mr-2 ${color} text-2xl`}><img src={symbol} alt="Symbol" className="w-10 h-10 rounded-full"/></span>
+                    <span className={`mr-2 ${color} text-2xl`}>
+                      <Image
+                        src={symbol}
+                        width={40} // Matches w-10
+                        height={40} // Matches h-10
+                        alt="Symbol"
+                        className="w-10 h-10 rounded-full"
+                        unoptimized
+                      />
+                    </span>
                     <span>{faq.question}</span>
                   </div>
                   <span
