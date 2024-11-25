@@ -47,7 +47,7 @@ export default function LoginPage() {
 
     try {
       const response = await axios.post(
-        "https://your-api-endpoint.com/api/login",
+        "https://dashboard.tokengamingaffiliates.xyz/api/client/partner/sign_in",
         {
           partner_user: {
             email: data.email,
@@ -65,18 +65,23 @@ export default function LoginPage() {
         console.log("Login successful:", response.data);
         // Redirect or perform any additional logic
       }
-    } catch (error) {
+    }catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         const errorData = error.response.data;
-        setErrorMessage(
-          errorData.message || "An unexpected error occurred during login."
-        );
+    
+        if (error.response.status === 401) {
+          console.error("401 Unauthorized Error:", errorData.error);
+        }
+    
+        // Set the warning message from the `error` field
+        setErrorMessage(errorData.error || "An unexpected error occurred during login.");
       } else {
+        console.error("Unexpected Error:", error);
         setErrorMessage("An unexpected error occurred.");
       }
-    } finally {
-      setLoading(false);
     }
+    
+    
   };
 
   return (
@@ -88,7 +93,27 @@ export default function LoginPage() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+       {/* Warning Message */}
+  {errorMessage && (
+    <div className="flex items-center gap-2 p-4 mb-4 text-yellow-800 bg-yellow-50 border border-yellow-400 rounded">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-5 h-5 flex-shrink-0"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        strokeWidth="2"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M10.29 3.86l-6 10A1 1 0 005 15h14a1 1 0 00.85-1.53l-6-10a1 1 0 00-1.7 0zM12 9v4m0 4h.01"
+        />
+      </svg>
+      <p>{errorMessage}</p>
+    </div>
+  )}
+
         <FormProvider {...form}>
           <form
             className="flex flex-col gap-4"
