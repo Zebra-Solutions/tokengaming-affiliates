@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://api-staging.devaff.softswiss.net/api/:path*',
+        source: "/api/client/partner",
+        destination: "https://dashboard.tokengamingaffiliates.xyz/api/client/partner",
       },
     ];
   },
