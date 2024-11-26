@@ -24,6 +24,7 @@ import { z } from "zod";
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Logo from "@/app/components/logo";
 
 const formSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email format"),
@@ -77,7 +78,12 @@ export default function LoginPage() {
     }
   };
 
+
   return (
+    <><Logo
+    width={300}
+    
+  />
     <Card className="w-full max-w-sm">
       <CardHeader>
         <CardTitle>Login</CardTitle>
@@ -155,6 +161,6 @@ export default function LoginPage() {
           Need an account? <a href="/sign-up" className="text-blue-600">Sign up here</a>.
         </small>
       </CardFooter>
-    </Card>
+    </Card></>
   );
 }
