@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import ContactUs from "./components/contact-us";
 import Footer from "./components/Footer";
 import BannerCarousel from "./components/BannerCarousel";
+import PolicyCookies from "./components/cookies/Policy-cookies";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <Divider reverse />
         <ContactUs />
         <Footer />
+        <PolicyCookies />
       </div>
     </div>
   );
