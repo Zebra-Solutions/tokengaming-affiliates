@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import Logo from "../logo";
@@ -9,12 +9,50 @@ import { MenuIcon } from "lucide-react";
 import GradientButton from "../GradiantButton";
 import NavLink from "../NavLink";
 
+const sections = [
+  { id: "home", label: "About Us" },
+  { id: "about", label: "Why Us?" },
+  { id: "testimonials", label: "Testimonials" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact Us" },
+];
+
 export default function Header({ className = "" }: { className?: string }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   const toggleDrawer = () => {
     setDrawerOpen((prev) => !prev);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionElements = sections.map(({ id }) =>
+        document.getElementById(id)
+      );
+
+      let currentSection = sectionElements.find((section) => {
+        if (!section) return false;
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 0 && rect.bottom >= 0; // Adjust threshold as needed
+      });
+  
+      // If no section is active and scrolled to the bottom of the page
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        currentSection = sectionElements[sectionElements.length - 1]; // Last section
+      }
+  
+      if (currentSection && currentSection.id !== activeSection) {
+        setActiveSection(currentSection.id);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [activeSection]);
 
   return (
     <>
@@ -33,11 +71,15 @@ export default function Header({ className = "" }: { className?: string }) {
 
           {/* Navigation Links (Visible on large screens and above) */}
           <nav className="hidden lg:flex lg:space-x-4 ml-10">
-            <NavLink href="#home">About Us</NavLink>
-            <NavLink href="#about">Why Us?</NavLink>
-            <NavLink href="#testimonials">Testimonials</NavLink>
-            <NavLink href="#faq">FAQ</NavLink>
-            <NavLink href="#contact">Contact Us</NavLink>
+            {sections.map(({ id, label }) => (
+              <NavLink
+                key={id} // Stable key based on section ID
+                href={`#${id}`}
+                className={clsx("nav-link", activeSection === id && "active")}
+              >
+                {label}
+              </NavLink>
+            ))}
           </nav>
 
           {/* Hamburger Menu for Medium and Smaller Screens */}
