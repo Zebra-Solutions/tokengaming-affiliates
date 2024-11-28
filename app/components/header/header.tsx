@@ -36,12 +36,12 @@ export default function Header({ className = "" }: { className?: string }) {
         const rect = section.getBoundingClientRect();
         return rect.top <= 0 && rect.bottom >= 0; // Adjust threshold as needed
       });
-  
+
       // If no section is active and scrolled to the bottom of the page
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         currentSection = sectionElements[sectionElements.length - 1]; // Last section
       }
-  
+
       if (currentSection && currentSection.id !== activeSection) {
         setActiveSection(currentSection.id);
       }
@@ -149,10 +149,11 @@ export default function Header({ className = "" }: { className?: string }) {
                   Sign up
                 </GradientButton>
                 <Button
+                  asChild
                   variant="outline"
                   className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900"
                 >
-                  Log in
+                  <Link href="/login">Log in</Link>
                 </Button>
               </div>
             </div>
