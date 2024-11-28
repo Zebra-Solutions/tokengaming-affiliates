@@ -25,6 +25,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Logo from "@/app/components/logo";
+import Swal from "sweetalert2";
 
 const formSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email format"),
@@ -47,7 +48,7 @@ export default function LoginPage() {
   const handleSubmit = async (data: z.infer<typeof formSchema>) => {
     setLoading(true);
     setErrorMessage("");
-
+  
     try {
       const response = await axios.post(
         "https://dashboard.tokengamingaffiliates.xyz/api/client/partner/sign_in",
@@ -63,20 +64,37 @@ export default function LoginPage() {
           },
         }
       );
-
-      if (response.status === 200) {
-        router.push("https://dashboard.tokengamingaffiliates.xyz");
+  
+      if (response.status === 201) {
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful!",
+          text: "You have successfully logged in.",
+        });
+        router.push("/");
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         const errorData = error.response.data;
-
+  
         setErrorMessage(
           errorData.error || "An unexpected error occurred during login."
         );
+        Swal.fire({
+          icon: "error",
+          title: "Login Failed",
+          text: errorData.error || "An unexpected error occurred during login.",
+        });
       } else {
         setErrorMessage("An unexpected error occurred.");
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "An unexpected error occurred.",
+        });
       }
+    } finally {
+      setLoading(false);
     }
   };
 
