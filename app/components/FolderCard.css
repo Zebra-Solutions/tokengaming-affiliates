@@ -1,0 +1,68 @@
+.folder-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Shadow Folder */
+.folder-shadow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 420px;
+  height: 310px;
+  background: rgba(0, 0, 0, 0.1); /* Light shadow color */
+  border-radius: 5px 40px 40px 40px; 
+  filter: blur(8px); /* Optional: add blur effect to make it look more like a shadow */
+  z-index: -1; /* Behind the actual folder */
+}
+
+/* Main Folder */
+.folder {
+  width: 420px;
+  height: auto;
+  margin: 5em auto 2em;
+  border-radius: 5px 40px 40px 40px;
+  filter: drop-shadow(0 0 0.75rem grey);
+  background: rgb(239, 239, 239);
+  position: relative;
+  z-index: 1; /* In front of the shadow */
+  
+}
+
+.folder::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  width: 300px;
+  height: 25px;
+  background:  rgb(239, 239, 239);
+  border-radius: 25px 0 0 0;
+  clip-path: path('M 0 0 L 160 0 C 185 2, 175 16, 200 18 L 0 50 z');
+}
+
+.folder::after {
+  content: '';
+  position: absolute;
+  left: 40px;
+  width: 85px;
+  height: 5px;
+  top: -18px;
+  background: #0518e1;
+  border-radius: 0 0 5px 5px;
+}
+
+/* Additional folder content styling */
+.folder-content {
+  padding: 1em;
+  color: #333;
+}
+
+.folder-content h2 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.folder-content p {
+  font-size: 1em;
+  color: #555;
+}
