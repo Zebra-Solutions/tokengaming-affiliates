@@ -18,10 +18,10 @@ const GradientButton: React.FC<GradientButtonProps> = ({
   href,
   children,
   type = "button", // Default to "button"
-  fromColor = "from-blue-900",
-  toColor = "to-blue-600",
-  hoverFromColor = "hover:from-blue-600",
-  hoverToColor = "hover:to-blue-900",
+  fromColor = "from-[#3258FB]",
+  toColor = "to-blue-500",
+  hoverFromColor = "hover:from-blue-500",
+  hoverToColor = "hover:to-[#3258FB]",
   className = "",
   disabled = false,
 }) => {

@@ -20,6 +20,7 @@ const sections = [
 export default function Header({ className = "" }: { className?: string }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleDrawer = () => {
     setDrawerOpen((prev) => !prev);
@@ -36,15 +37,18 @@ export default function Header({ className = "" }: { className?: string }) {
         const rect = section.getBoundingClientRect();
         return rect.top <= 0 && rect.bottom >= 0; // Adjust threshold as needed
       });
-  
+
       // If no section is active and scrolled to the bottom of the page
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
         currentSection = sectionElements[sectionElements.length - 1]; // Last section
       }
-  
+
       if (currentSection && currentSection.id !== activeSection) {
         setActiveSection(currentSection.id);
       }
+
+      // Check if user has scrolled
+      setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -58,10 +62,13 @@ export default function Header({ className = "" }: { className?: string }) {
     <>
       <header
         className={clsx(
-          "fixed top-0 w-full flex justify-between items-center p-4 border-b border-border z-50 shadow-xl lg:px-20 overflow-hidden",
+          "fixed top-0 w-full flex justify-between items-center p-4 z-50 lg:px-20 overflow-hidden",
           className
         )}
-        style={{ backgroundColor: "#000", height: "80px" }} // Specify height here
+        style={{
+          backgroundColor: isScrolled ? "#161617" : "transparent",
+          height: "80px",
+        }}
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
@@ -70,7 +77,7 @@ export default function Header({ className = "" }: { className?: string }) {
           </NavLink>
 
           {/* Navigation Links (Visible on large screens and above) */}
-          <nav className="hidden lg:flex lg:space-x-4 ml-10">
+          <nav className="hidden lg:flex lg:space-x-9 ml-24">
             {sections.map(({ id, label }) => (
               <NavLink
                 key={id} // Stable key based on section ID
