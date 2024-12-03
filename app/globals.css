@@ -6,31 +6,58 @@
 
 /* Akira Expanded Custom Font */
 @font-face {
-  font-family: 'AkiraExpanded';
-  src: url('/fonts/AkiraExpanded.otf') format('opentype');
-  font-weight: 800;
+  font-family: "AkiraExpanded";
+  src: url("/fonts/AkiraExpanded.otf") format("opentype");
+
   font-style: normal;
 }
 
 /* Global Typography */
-html, body {
-  font-family: 'Source Sans', sans-serif;
-  font-weight: 400; 
-  overflow-x: hidden; 
+html,
+body {
+  font-family: "Source Sans", sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: 'AkiraExpanded', sans-serif;
-  font-weight: 800; /* Explicitly set the weight for headings */
+h1 {
+  font-family: "AkiraExpanded", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+}
+h2 {
+  font-family: "AkiraExpanded", sans-serif;
+  font-weight: 800;
+  font-size: 1.75rem;
+}
+h3 {
+  font-family: "AkiraExpanded", sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
-h4, h5, h6 {
-  font-family: 'Source Sans', sans-serif;
-  font-weight: 600; /* Subheadlines */
+h4 {
+  font-family: "Source Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+h5 {
+  font-family: "Source Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+h6 {
+  font-family: "Source Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 
-p, span, a, li, div {
-  font-family: 'Source Sans', sans-serif;
+p,
+span,
+a,
+li,
+div {
+  font-family: "Source Sans", sans-serif;
   font-weight: 400; /* Body text */
 }
 
@@ -40,7 +67,7 @@ p, span, a, li, div {
   background-repeat: no-repeat; /* Prevent tiling */
   background-attachment: fixed; /* Make the background stay in place during scrolling */
   background-position: center;
-  background-color: #161617 ;
+  background-color: #161617;
 }
 @layer base {
   :root {
