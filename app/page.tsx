@@ -1,5 +1,5 @@
 import Header from "./components/header/header";
-import AboutUs from "./components/AboutUs";
+
 import WhyUs from "./components/WhyUs";
 import FAQ from "./components/FAQ";
 import Divider from "./components/Divider";
@@ -18,7 +18,7 @@ export default function Home() {
       >
         <Banner />
 
-        <AboutUs />
+        <WhyUs />
 
        
 

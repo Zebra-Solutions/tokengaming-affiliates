@@ -1,78 +1,111 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card"; // Make sure to import the necessary components
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChartBar,
-  faDollarSign,
-  faCreditCard,
-  faUserTie,
-} from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome icons
-import { Button } from "@/components/ui/button";
+"use client";
+import dynamic from "next/dynamic";
+import React, { useState, useEffect } from "react";
+
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const AboutUs: React.FC = () => {
-  const features = [
+  const [centerIndex, setCenterIndex] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const settings = {
+    centerMode: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    speed: 500,
+    cssEase: "ease-in-out",
+    afterChange: (current: number) => {
+      const newCenterIndex = (current + 1) % slides.length;
+      setCenterIndex(newCenterIndex);
+    },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const slides = [
     {
-      icon: faChartBar,
-      title: "Detailed Stats",
+      title: "Quality",
       description:
-        "Our unique affiliate system provides you hourly updates as well as allowing you to track your campaigns, customers and traffic.",
+        "We provide top-notch service and ensure customer satisfaction.",
+      imageUrl: "/card1.jpg",
     },
     {
-      icon: faDollarSign,
-      title: "Lifetime Revenue",
+      title: "Expert Team",
       description:
-        "As always, your potential revenue is limitless. The more traffic you bring in, the more you will earn. Our generous payout structure allows you to earn on every player.",
+        "Our team consists of industry experts with years of experience.",
+      imageUrl: "/card2.jpg",
     },
     {
-      icon: faCreditCard,
-      title: "Fast Affiliate Payments",
+      title: "Innovation",
       description:
-        "We pay our affiliates fast. At the start of each month, we pay commissions within 8 business days.",
-    },
-    {
-      icon: faUserTie,
-      title: "Local Guidance",
-      description:
-        "Benefit from the guidance and help of our location-based country managers, who have been over 10 years in the gaming industry.",
+        "We bring innovative solutions to help you stay ahead of the competition.",
+      imageUrl: "/card3.jpg",
     },
   ];
 
   return (
-    <section id="home" className="py-20 bg-[#f2f3f5] text-[#161617]">
-      <h1 className="text-center text-3xl font-bold mb-6">Why Us</h1>
-      <p className="text-center text-gray-500 mb-12">
-        We are committed to providing the best services in the industry
-      </p>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-16">
-        {features.map((feature, index) => (
-          <Card
-            key={index}
-            className="max-w-sm mx-auto p-6 border-t-4 border-t-[#3258FB] min-h-[300px] flex flex-col justify-between rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
-          >
-            <CardHeader className="text-center">
-              <FontAwesomeIcon
-                icon={feature.icon}
-                className="mb-4 h-[20px] w-[20px]"
-                style={{ color: "#3258FB" }}
-              />
-              <CardTitle>{feature.title}</CardTitle>
-            </CardHeader>
-            <CardDescription className="text-gray-500 text-center flex-grow">
-              {feature.description}
-            </CardDescription>
-          </Card>
-        ))}
+    <section
+      id="about"
+      className="py-20 bg-[#161617] text-gray-50 flex flex-col items-center"
+    >
+      {/* Title Section */}
+      <div className="w-full text-center px-8 mb-8">
+        <h2 className="text-4xl font-bold mb-4">Why Us?</h2>
+        <p className="text-gray-200">
+          Discover what makes us unique and why clients trust us with their most
+          important projects.
+        </p>
       </div>
 
-      <div className="flex justify-center mt-12">
-        <Button className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold">
-          Became a partner
-        </Button>
+      {/* Full-Width Carousel Section */}
+      <div className="w-full">
+        <Slider {...settings}>
+          {slides.map((slide, index) => (
+            <div key={index} className="relative">
+              <div
+                className={`bg-cover bg-center h-96 flex items-end text-white transition-opacity duration-300 ${
+                  !isMobile && index === centerIndex
+                    ? "opacity-100"
+                    : !isMobile
+                    ? "opacity-50"
+                    : ""
+                }`}
+                style={{
+                  backgroundImage: `url(${slide.imageUrl})`,
+                }}
+              >
+                <div className="bg-gray-800 bg-opacity-60 p-4 w-full h-48 relative flex flex-col items-center justify-center">
+                  <h3 className="text-2xl shadowtitle font-semibold uppercase absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    {slide.title}
+                  </h3>
+                  <p className="mt-2 text-center">{slide.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );
