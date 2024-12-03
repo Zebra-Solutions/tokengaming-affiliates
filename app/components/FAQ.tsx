@@ -90,11 +90,6 @@ const FAQ: React.FC = () => {
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"
       >
-        {/* Top Fade */}
-        <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
-
-        {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#161617] to-transparent"></div>
 
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs
