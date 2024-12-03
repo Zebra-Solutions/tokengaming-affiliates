@@ -35,24 +35,24 @@ export default function Header({ className = "" }: { className?: string }) {
       let currentSection = sectionElements.find((section) => {
         if (!section) return false;
         const rect = section.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom >= 0; // Adjust threshold as needed
+        return rect.top <= 0 && rect.bottom >= 0;
       });
 
-      // If no section is active and scrolled to the bottom of the page
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        currentSection = sectionElements[sectionElements.length - 1]; // Last section
+        currentSection = sectionElements[sectionElements.length - 1];
       }
 
       if (currentSection && currentSection.id !== activeSection) {
         setActiveSection(currentSection.id);
       }
 
-      // Check if user has scrolled
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Check scroll position on initial load
+    handleScroll();
 
+    window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -62,7 +62,7 @@ export default function Header({ className = "" }: { className?: string }) {
     <>
       <header
         className={clsx(
-          "fixed top-0 w-full flex justify-between items-center z-50 lg:px-36 overflow-hidden px-4 py-4",
+          "fixed top-0 w-full flex justify-between items-center z-50 lg:px-36 overflow-hidden px-4 py-4 transition-all duration-300",
           className
         )}
         style={{
@@ -76,11 +76,11 @@ export default function Header({ className = "" }: { className?: string }) {
             <Logo />
           </NavLink>
 
-          {/* Navigation Links (Visible on large screens and above) */}
+          {/* Navigation Links */}
           <nav className="hidden lg:flex lg:space-x-7 ml-16">
             {sections.map(({ id, label }) => (
               <NavLink
-                key={id} // Stable key based on section ID
+                key={id}
                 href={`#${id}`}
                 className={clsx("nav-link", activeSection === id && "active")}
               >
@@ -89,13 +89,13 @@ export default function Header({ className = "" }: { className?: string }) {
             ))}
           </nav>
 
-          {/* Hamburger Menu for Medium and Smaller Screens */}
+          {/* Hamburger Menu */}
           <button onClick={toggleDrawer} className="lg:hidden p-2 ml-auto">
             <MenuIcon className="text-white" />
           </button>
         </div>
 
-        {/* Right side: Sign Up and Log In Buttons */}
+        {/* Right side */}
         <div className="hidden custom:flex items-center space-x-4">
           <GradientButton href="/sign-up">Sign up</GradientButton>
           <Button
@@ -108,48 +108,22 @@ export default function Header({ className = "" }: { className?: string }) {
         </div>
       </header>
 
-      {/* Main content wrapper with padding-top to account for fixed header height */}
       <main style={{ paddingTop: "80px" }}>
-        {/* Drawer for Medium and Smaller Screens */}
+        {/* Drawer */}
         {drawerOpen && (
           <Drawer open={drawerOpen} onOpenChange={setDrawerOpen}>
             <div className="fixed left-0 w-full p-4 bg-[#141419] text-white lg:hidden z-40 overflow-auto">
               <nav className="flex flex-col space-y-4 items-center">
-                <NavLink
-                  href="#home"
-                  onClick={toggleDrawer}
-                  className="text-white hover:text-blue-300"
-                >
-                  About Us
-                </NavLink>
-                <NavLink
-                  href="#about"
-                  onClick={toggleDrawer}
-                  className="text-white hover:text-blue-300"
-                >
-                  Why Us?
-                </NavLink>
-                <NavLink
-                  href="#testimonials"
-                  onClick={toggleDrawer}
-                  className="text-white hover:text-blue-300"
-                >
-                  Testimonials
-                </NavLink>
-                <NavLink
-                  href="#faq"
-                  onClick={toggleDrawer}
-                  className="text-white hover:text-blue-300"
-                >
-                  FAQ
-                </NavLink>
-                <NavLink
-                  href="#contact"
-                  onClick={toggleDrawer}
-                  className="text-white hover:text-blue-300"
-                >
-                  Contact Us
-                </NavLink>
+                {sections.map(({ id, label }) => (
+                  <NavLink
+                    key={id}
+                    href={`#${id}`}
+                    onClick={toggleDrawer}
+                    className="text-white hover:text-blue-300"
+                  >
+                    {label}
+                  </NavLink>
+                ))}
               </nav>
               <div className="my-5 flex justify-center items-center">
                 <GradientButton href="/sign-up" className="mr-3">
