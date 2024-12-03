@@ -10,10 +10,9 @@ import GradientButton from "../GradiantButton";
 import NavLink from "../NavLink";
 
 const sections = [
-  { id: "home", label: "About Us" },
   { id: "about", label: "Why Us?" },
-  { id: "testimonials", label: "Testimonials" },
   { id: "faq", label: "FAQ" },
+  { id: "steps", label: "How it Works?" },
   { id: "contact", label: "Contact Us" },
 ];
 
