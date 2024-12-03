@@ -34,7 +34,7 @@ export default function Header({ className = "" }: { className?: string }) {
       let currentSection = sectionElements.find((section) => {
         if (!section) return false;
         const rect = section.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom >= 0;
+        return rect.top <= 0 && rect.bottom >= 40;
       });
 
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
