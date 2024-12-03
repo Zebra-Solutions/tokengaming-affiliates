@@ -59,6 +59,10 @@ const config: Config = {
       screens: {
         custom: "1216px",
       },
+      fontFamily: {
+        heading: ['AkiraExpanded', 'sans-serif'], // Custom heading font
+        body: ['Source Sans', 'sans-serif'], // Body text font
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
