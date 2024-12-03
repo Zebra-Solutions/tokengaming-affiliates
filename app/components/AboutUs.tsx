@@ -5,7 +5,12 @@ import {
   CardDescription,
 } from "@/components/ui/card"; // Make sure to import the necessary components
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartBar, faDollarSign, faCreditCard, faUserTie } from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome icons
+import {
+  faChartBar,
+  faDollarSign,
+  faCreditCard,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome icons
 import { Button } from "@/components/ui/button";
 
 const AboutUs: React.FC = () => {
@@ -55,7 +60,9 @@ const AboutUs: React.FC = () => {
                 className="mb-4 h-[20px] w-[20px]"
                 style={{ color: "#3258FB" }}
               />
-              <CardTitle className="text-xl font-semibold text-[#161617]">{feature.title}</CardTitle>
+              <CardTitle className="text-xl font-semibold text-[#161617]">
+                {feature.title}
+              </CardTitle>
             </CardHeader>
             <CardDescription className="text-gray-500 text-center flex-grow">
               {feature.description}
@@ -63,21 +70,10 @@ const AboutUs: React.FC = () => {
           </Card>
         ))}
       </div>
-      
-      {/* Centering the button */}
+
       <div className="flex justify-center mt-12">
-        <Button
-          style={{
-            backgroundColor: "#3258FB",
-            borderRadius: "10px",
-            padding: "10px 20px",
-            textAlign: "center",
-            color: "#f2f3f5",
-            fontWeight: "bold",
-            cursor: "pointer",
-          }}
-        >
-          Become a Partner
+        <Button className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold">
+          Became a partner
         </Button>
       </div>
     </section>
