@@ -21,10 +21,12 @@ const ContactUs: React.FC = () => {
         width: "100%",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundBlendMode: "overlay",
+        backgroundColor: "rgba(150, 150, 150, 0.5)", // Grayish background
         backgroundImage: `url("https://tokengaming.fra1.cdn.digitaloceanspaces.com/packages/media/theme/tokengaming/banners/landing-hero-desktop.webp")`,
       }}
     >
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#090909] to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
 
       {/* Animated blue gradient overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-32 animate-blue-gradient "></div>
