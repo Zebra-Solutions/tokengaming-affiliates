@@ -60,9 +60,7 @@ const AboutUs: React.FC = () => {
                 className="mb-4 h-[20px] w-[20px]"
                 style={{ color: "#3258FB" }}
               />
-              <CardTitle className="text-xl font-semibold text-[#161617]">
-                {feature.title}
-              </CardTitle>
+              <CardTitle>{feature.title}</CardTitle>
             </CardHeader>
             <CardDescription className="text-gray-500 text-center flex-grow">
               {feature.description}

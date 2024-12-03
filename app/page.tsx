@@ -20,12 +20,12 @@ export default function Home() {
 
         <AboutUs />
 
-        <WhyUs />
+       
 
-        <Testimonials />
+       
 
         <FAQ />
-
+        
         <ContactUs />
         <Footer />
         <PolicyCookies />
