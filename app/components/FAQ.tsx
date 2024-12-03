@@ -1,7 +1,7 @@
 "use client";
-
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faDiamond, faChevronDown } from "@fortawesome/free-solid-svg-icons"; // Import card suit icons
 
 const faqs = [
   {
@@ -38,13 +38,6 @@ const faqs = [
   },
 ];
 
-const symbols = [
-  { symbol: "/symbol1.png", color: "text-black" },
-  { symbol: "/symbol2.png", color: "text-pink-500" },
-  { symbol: "/symbol3.png", color: "text-black" },
-  { symbol: "/symbol4.png", color: "text-pink-500" },
-];
-
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [visibleQuestions, setVisibleQuestions] = useState<number>(0);
@@ -71,26 +64,18 @@ const FAQ: React.FC = () => {
       },
       { threshold: 0.3 } // Trigger when 30% of FAQ section is visible
     );
-  
+
     const currentFaqRef = faqRef.current; // Store the ref value in a variable
     if (currentFaqRef) observer.observe(currentFaqRef);
-  
+
     return () => {
       if (currentFaqRef) observer.unobserve(currentFaqRef); // Use the stored value here
     };
   }, [hasAnimated]);
-  
 
   return (
-    <section
-      ref={faqRef}
-      id="faq"
-      className="py-20 px-0 text-gray-50"
-    >
-      <div
-        className="bg-cover bg-center py-4 relative overflow-hidden"
-      >
-
+    <section ref={faqRef} id="faq" className="py-20 px-0 text-gray-50">
+      <div className="bg-cover bg-center py-4 relative overflow-hidden">
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs
         </h2>
@@ -99,39 +84,34 @@ const FAQ: React.FC = () => {
         </p>
         <div className="max-w-2xl mx-auto px-4 relative">
           {faqs.map((faq, index) => {
-            const { symbol, color } = symbols[index % symbols.length]; // Cycle through symbols
+            const iconList = [ faHeart, faDiamond];
+            const icon = iconList[index % iconList.length]; // Select a different icon for each FAQ
+
             return (
               <div
                 key={index}
                 className={`border-b border-gray-300 mb-4 pb-4 transition-opacity duration-500 ${
                   index < visibleQuestions ? "opacity-100" : "opacity-0"
                 }`}
-                style={{ transitionDelay: `${index * 150}ms` }} // Staggered delay
+                style={{ transitionDelay: `${index * 150}ms` }}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
                   className="w-full text-left flex items-center justify-between text-lg md:text-base font-semibold text-gray-200"
                 >
                   <div className="flex items-center">
-                    <span className={`mr-2 ${color} text-2xl`}>
-                      <Image
-                        src={symbol}
-                        width={40} // Matches w-10
-                        height={40} // Matches h-10
-                        alt="Symbol"
-                        className="w-10 h-10 rounded-full"
-                        unoptimized
-                      />
-                    </span>
+                    <FontAwesomeIcon
+                      icon={icon} // Use the card suit icon
+                      className="mr-2 text-l text-[#3258FB]"
+                    />
                     <span>{faq.question}</span>
                   </div>
-                  <span
+                  <FontAwesomeIcon
+                    icon={faChevronDown} // Icon for the dropdown
                     className={`transition-transform ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
-                  >
-                    ▼
-                  </span>
+                  />
                 </button>
                 <div
                   className={`overflow-hidden transition-[max-height] duration-700 ${
