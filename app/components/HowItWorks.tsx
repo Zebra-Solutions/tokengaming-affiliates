@@ -35,7 +35,7 @@ export default function HowItWorks() {
             <div className="w-12 h-12 hover:bg-[#4b68ea] bg-[#3258FB] text-white rounded-full flex items-center justify-center mx-auto mb-4">
               {step.number}
             </div>
-            <h3 className="text-lg font-medium mb-2">{step.title}</h3>
+            <h4 className="text-lg  mb-2">{step.title}</h4>
             <p className="text-sm text-gray-600">{step.description}</p>
           </div>
         ))}
