@@ -1,27 +1,66 @@
 "use client";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faDiamond, faChevronDown } from "@fortawesome/free-solid-svg-icons"; // Import card suit icons
+import {
+  faHeart,
+  faDiamond,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons"; // Import card suit icons
 
 const faqsByCategory = {
   "Getting Started": [
-    { question: "How do I become an Affiliate?", answer: "Lorem ipsum dolor sit amet..." },
-    { question: "Is this Program free?", answer: "Lorem ipsum dolor sit amet..." },
+    {
+      question: "How can I join as an affiliate?",
+      answer:
+        "Joining is quick and simple—it takes less than two minutes to register. Once you’ve signed up, we’ll review your account and approve it if all the details are correctly provided.",
+    },
+    {
+      question: "Is the program free to join?",
+      answer:
+        "Absolutely! Joining our affiliate program is completely free. Just register—there are no fees or minimum player requirements.",
+    },
   ],
   Payments: [
-    { question: "How is my affiliate commission calculated?", answer: "Lorem ipsum dolor sit amet..." },
-    { question: "When will I receive my commission?", answer: "Lorem ipsum dolor sit amet..." },
-    { question: "Do you have Negative Carry-Over?", answer: "Lorem ipsum dolor sit amet..." },
+    { 
+      question: "How is my commission calculated?", 
+      answer: `
+        <ul style="list-style-type: disc; padding-left: 20px;">
+          <li>Commission = Net Gaming Revenue × Revenue Share %</li>
+          <li>Net Gaming Revenue = Gross Gaming Revenue – Bonus Costs – Chargebacks – Admin Fee</li>
+        </ul>
+      ` 
+    },
+    {
+      question: "When will I receive my commission?",
+      answer:
+        "Commissions are calculated at the end of each month and are paid out by the 10th of the following month.",
+    },
+    {
+      question: "Is there negative carry-over?",
+      answer: "No, we do not practice negative carry-over.",
+    },
   ],
   "Performance Tracking": [
-    { question: "How often are my statistics updated?", answer: "Lorem ipsum dolor sit amet..." },
-    { question: "What if I have more than one website?", answer: "Lorem ipsum dolor sit amet..." },
-    { question: "How long are cookies stored?", answer: "Lorem ipsum dolor sit amet..." },
+    {
+      question: "How often are my statistics updated?",
+      answer:
+        "Your statistics for registrations and deposits update hourly. Clicks, views, and direct referrals are updated in real-time.",
+    },
+    {
+      question: "What if I have multiple websites?",
+      answer:
+        "You’re welcome to promote us from as many websites as you like. You can add multiple sites to your affiliate account.",
+    },
+    {
+      question: "How long do cookies last?",
+      answer: "Cookies are stored for 30 days.",
+    },
   ],
 };
 
 const FAQ: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<keyof typeof faqsByCategory>("Getting Started");
+  const [activeCategory, setActiveCategory] =
+    useState<keyof typeof faqsByCategory>("Getting Started");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -29,7 +68,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 px-0 text-gray-50">
+    <section id="faq" className="py-20 px-2 text-gray-50">
       <div className="bg-cover bg-center py-4 relative overflow-hidden">
         <h2 className="text-3xl md:text-2xl font-bold text-center mb-6 relative">
           General FAQs
@@ -84,9 +123,10 @@ const FAQ: React.FC = () => {
                 </button>
                 {openIndex === index && (
                   <div>
-                    <p className="mt-3 text-gray-200 text-base md:text-sm">
-                      {faq.answer}
-                    </p>
+                    <p
+                      className="mt-3 text-gray-200 text-base md:text-sm"
+                      dangerouslySetInnerHTML={{ __html: faq.answer }} // Render the HTML content
+                    />
                   </div>
                 )}
               </div>
