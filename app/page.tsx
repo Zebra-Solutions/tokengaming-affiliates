@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import ContactUs from "./components/contact-us";
 import Footer from "./components/Footer";
 import PolicyCookies from "./components/cookies/Policy-cookies";
+import HowItWorks from "./components/HowItWorks";
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
        
 
         <FAQ />
-        
+        <HowItWorks/>
         <ContactUs />
         <Footer />
         <PolicyCookies />
