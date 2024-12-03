@@ -86,7 +86,7 @@ const FAQ: React.FC = () => {
     <section
       ref={faqRef}
       id="faq"
-      className="py-20 px-0 bg-[#090909] text-gray-50"
+      className="py-20 px-0 text-gray-50"
     >
       <div
         className="bg-cover bg-center py-4 relative overflow-hidden"

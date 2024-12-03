@@ -7,26 +7,25 @@ import Banner from "./components/Banner";
 import Testimonials from "./components/Testimonials";
 import ContactUs from "./components/contact-us";
 import Footer from "./components/Footer";
-import BannerCarousel from "./components/BannerCarousel";
 import PolicyCookies from "./components/cookies/Policy-cookies";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full main-bg">
       <Header />
       <div
-        className="bg-[#090909] pt-[80px]" // Add padding-top matching header height
+        className="pt-[80px]" // Add padding-top matching header height
       >
         <Banner />
-        <BannerCarousel/>
+
         <AboutUs />
-        <Divider />
+
         <WhyUs />
-        <Divider reverse />
+
         <Testimonials />
-        <Divider />
+
         <FAQ />
-        <Divider reverse />
+
         <ContactUs />
         <Footer />
         <PolicyCookies />
