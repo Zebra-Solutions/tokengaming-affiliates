@@ -1,13 +1,5 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google";
 import "./globals.css";
-
-// Google Font: Nunito
-const nunito = Nunito({
-  subsets: ["latin"],
-  variable: "--font-nunito", 
-  weight: ["200", "300", "400", "600", "700", "800"], 
-});
 
 export const metadata: Metadata = {
   title: "Tokengaming Affiliates",
@@ -21,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito.variable} antialiased`}>
+      <body className="antialiased">
         {children}
       </body>
     </html>

@@ -2,13 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@300;400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@300;400;700&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap");
 
-body {
-  font-family: var(--font-nunito);
-  overflow-x: hidden;
+/* Akira Expanded Custom Font */
+@font-face {
+  font-family: 'AkiraExpanded';
+  src: url('/fonts/AkiraExpanded.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
 }
+
+/* Global Typography */
+html, body {
+  font-family: 'Source Sans', sans-serif;
+  font-weight: 400; 
+  overflow-x: hidden; 
+}
+
+h1, h2, h3 {
+  font-family: 'AkiraExpanded', sans-serif;
+  font-weight: 800; /* Explicitly set the weight for headings */
+}
+
+h4, h5, h6 {
+  font-family: 'Source Sans', sans-serif;
+  font-weight: 600; /* Subheadlines */
+}
+
+p, span, a, li, div {
+  font-family: 'Source Sans', sans-serif;
+  font-weight: 400; /* Body text */
+}
+
 .main-bg {
   background-image: url("/bg-home.png"); /* Update with the path to your image */
   background-size: cover; /* Ensure the image covers the entire viewport */
