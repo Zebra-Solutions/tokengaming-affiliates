@@ -11,21 +11,21 @@ const Banner: React.FC = () => {
         <h1 className="text-4xl md:text-4xl font-bold tracking-tight leading-tight">
         Promote Share Earn 
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
+        <h4 className="text-2xl md:text-2xl text-gray-300 leading-relaxed font-light pb-10">
           Join our affiliate program and watch your profits grow! It’s simple,
           effective, and rewarding.
-        </p>
+        </h4>
       </div>
 
       {/* Image Section */}
-      <div className="absolute w-2/3 h-full right-0 top-0 -ml-20 rounded-l-full z-20">
+      <div className="absolute w-full h-full right-0 top-0 -ml-20 rounded-t-[150px] md:rounded-l-full z-20 sm:w-2/3">
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#2d2d2d] opacity-50 rounded-l-full z-30"></div>
+        <div className="absolute inset-0 bg-[#2d2d2d] opacity-50 rounded-t-[150px] md:rounded-l-full z-30"></div>
         {/* Image */}
         <img
           src="./monkey.png" // Replace with your image
           alt="Banner"
-          className="object-cover w-full h-full rounded-l-full z-10"
+          className="object-cover w-full h-full rounded-t-[150px] md:rounded-l-full z-10"
         />
       </div>
     </section>

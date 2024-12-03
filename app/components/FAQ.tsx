@@ -110,7 +110,7 @@ const FAQ: React.FC = () => {
                   <div className="flex items-center">
                     <FontAwesomeIcon
                       icon={icon} // Use the card suit icon
-                      className="mr-2 text-l text-[#3258FB]"
+                      className="w-4 h-4 mr-2 text-l text-[#3258FB]"
                     />
                     <span>{faq.question}</span>
                   </div>
@@ -118,7 +118,7 @@ const FAQ: React.FC = () => {
                     icon={faChevronDown} // Icon for the dropdown
                     className={`transition-transform ${
                       openIndex === index ? "rotate-180" : ""
-                    }`}
+                    } w-4 h-4`}
                   />
                 </button>
 
