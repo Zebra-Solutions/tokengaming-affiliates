@@ -62,7 +62,7 @@ export default function Header({ className = "" }: { className?: string }) {
     <>
       <header
         className={clsx(
-          "fixed top-0 w-full flex justify-between items-center p-4 z-50 lg:px-20 overflow-hidden",
+          "fixed top-0 w-full flex justify-between items-center z-50 lg:px-36 overflow-hidden px-36 py-4",
           className
         )}
         style={{
@@ -77,7 +77,7 @@ export default function Header({ className = "" }: { className?: string }) {
           </NavLink>
 
           {/* Navigation Links (Visible on large screens and above) */}
-          <nav className="hidden lg:flex lg:space-x-9 ml-24">
+          <nav className="hidden lg:flex lg:space-x-9 ml-16">
             {sections.map(({ id, label }) => (
               <NavLink
                 key={id} // Stable key based on section ID
