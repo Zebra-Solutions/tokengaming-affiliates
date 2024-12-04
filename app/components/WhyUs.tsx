@@ -42,7 +42,10 @@ const WhyUs: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-[#f2f3f5] text-[#161617]">
+    <section
+      id="about"
+      className="py-20 bg-[#F5F5F5] text-[#161617] shadow-lg shadow-gray-400 "
+    >
       <h1 className="text-center text-3xl font-bold mb-6">Why Us</h1>
       <p className="text-center text-gray-500 mb-12">
         We are committed to providing the best services in the industry
@@ -79,3 +82,4 @@ const WhyUs: React.FC = () => {
 };
 
 export default WhyUs;
+

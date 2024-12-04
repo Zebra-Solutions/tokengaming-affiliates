@@ -6,7 +6,7 @@ type Props = {
 export default function LoggedOutLayout({ children }: Props) {
   return (
     <>
-      <div className="flex flex-col gap-4 min-h-screen items-center justify-center p-24  bg-cover bg-center" style={{backgroundImage:`url(${logBG.src})`,
+      <div className="flex flex-col gap-4 min-h-screen items-center justify-center p-4  bg-cover bg-center" style={{backgroundImage:`url(${logBG.src})`,
         backgroundColor: "#161617"}}>
         {children}
       </div>

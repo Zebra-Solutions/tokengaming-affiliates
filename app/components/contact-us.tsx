@@ -1,133 +1,126 @@
 import Link from "next/link";
-import "./contact-us.css"; // Adjust the path if necessary
+import logoSign from "@/public/logo-mobile.svg"; // Adjust the path if necessary
+import Image from "next/image";
+import "./contact-us.css";
 import Logo from "./logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarkerAlt, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
   faInstagram,
   faSkype,
   faLinkedin,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import { Button } from "@/components/ui/button";
 
 const ContactUs: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden text-left text-white bg-center bg-cover mt-12 py-14"
-      style={{
-        height: "100%",
-        width: "100%",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundBlendMode: "overlay",
-        backgroundColor: "rgba(150, 150, 150, 0.5)", // Grayish background
-        backgroundImage: `url("https://tokengaming.fra1.cdn.digitaloceanspaces.com/packages/media/theme/tokengaming/banners/landing-hero-desktop.webp")`,
-      }}
+      className="relative overflow-hidden text-left text-white bg-gradient-to-b from-[#161617] via-gray-900 to-[#161617] py-14"
     >
-      <div className="absolute top-0 left-0 right-0 h-28 bg-gradient-to-b from-[#161617] to-transparent"></div>
+      {/* Content Container */}
+      <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12">
+        {/* Logo Row */}
+        <div className="flex justify-start mb-10">
+          <Logo width={250} />
+        </div>
 
-      {/* Animated blue gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 animate-blue-gradient "></div>
+        {/* Grid for Contact Us, Quick Links, Have Any Questions? */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Left Column (Contact Us) */}
+          <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-2">
+            <h2 className="text-xl font-bold text-gray-100 mb-6">Contact Us</h2>
+            <div className="space-y-4">
+              <div className="flex items-center text-gray-400">
+                <FontAwesomeIcon
+                  icon={faMapMarkerAlt}
+                  className="text-primary-500 mr-3"
+                />
+                <span>123 Main St, Cityville</span>
+              </div>
+              <div className="flex items-center text-gray-400">
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className="text-primary-500 mr-3"
+                />
+                <span>+1 (555) 123-4567</span>
+              </div>
+               {/* Social Media */}
+               <div className="flex space-x-8 pt-6">
+                {[faFacebook, faTwitter, faInstagram, faSkype, faLinkedin, faYoutube].map((icon, index) => (
+                  <FontAwesomeIcon
+                    key={index}
+                    icon={icon}
+                    className="text-gray-500 hover:text-primary-500 transition-all transform hover:scale-110 cursor-pointer"
+                    size="2x"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
 
-      {/* Content under the header */}
-      <div className="w-full max-w-screen-xl mx-auto p-6 lg:p-12">
-        <div className="flex flex-col lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-10 bg-transparent bg-opacity-50 rounded-md relative">
-          {/* Left Column */}
-          <div className="w-full lg:w-1/2 space-y-6">
-            <Logo width={250} />
-
-            {/* Main Grid for Contact Information and Quick Links */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Contact Information on the Left */}
-              <div>
-                <h1 className="text-lg font-semibold mb-4 text-gray-300">
+          {/* Middle Column (Quick Links) */}
+          <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-1">
+            <h2 className="text-xl font-bold text-gray-100 mb-6">Quick Links</h2>
+            <ul className="space-y-4 text-gray-400">
+              <li>
+                <Link href="#" className="hover:text-primary-500">
+                  Why Us
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-primary-500">
+                  How it Works?
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-primary-500">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-primary-500">
                   Contact Us
-                </h1>
-                <div className="space-y-2">
-                  {/* Location */}
-                  <div className="flex items-center text-gray-500">
-                    <FontAwesomeIcon
-                      icon={faMapMarkerAlt}
-                      width={12}
-                      className="text-gray-500 me-2 "
-                    />
-                    <span>123 Main St, Cityville</span>
-                  </div>
-                  {/* Email */}
-                  <div className="flex items-center text-gray-500">
-                    <FontAwesomeIcon
-                      icon={faEnvelope}
-                      width={12}
-                      className="text-gray-500 me-2"
-                    />
-                    <span>contact@company.com</span>
-                  </div>
-                  {/* Social Media Icons */}
-                  <div className="flex space-x-4 pt-8 text-gray-500">
-                    <FontAwesomeIcon
-                      icon={faFacebook}
-                      width={25}
-                      className="hover:text-blue-600 cursor-pointer"
-                    />
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      width={25}
-                      className="hover:text-blue-600 cursor-pointer"
-                    />
-                    <FontAwesomeIcon
-                      icon={faInstagram}
-                      width={25}
-                      className="hover:text-blue-600 cursor-pointer"
-                    />
-                    <FontAwesomeIcon
-                      icon={faSkype}
-                      width={25}
-                      className="hover:text-blue-600 cursor-pointer"
-                    />
-                    <FontAwesomeIcon
-                      icon={faLinkedin}
-                      width={25}
-                      className="hover:text-blue-600 cursor-pointer"
-                    />
-                  </div>
-                </div>
-              </div>
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-              {/* Quick Links on the Right */}
-              <div>
-                <h2 className="text-lg font-semibold mb-4 text-gray-300">
-                  Quick Links
-                </h2>
-                <ul className="flex flex-col space-y-2 text-sm font-medium text-gray-500 dark:text-gray-400">
-                  <li>
-                    <Link href="#" className="hover:underline">
-                      About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="hover:underline">
-                      Privacy Policy
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="hover:underline">
-                      Licensing
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="hover:underline">
-                      FAQ
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="hover:underline">
-                      Contact Us
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+          {/* Right Column (Have Any Questions?) */}
+          <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-2">
+            <div className="text-center lg:text-right">
+              <h2 className="text-2xl font-bold text-gray-100">
+                Have Any Questions?
+              </h2>
+              <p className="text-gray-400 mt-4">
+                Reach out to our team, and we’ll be happy to assist you with any inquiries or concerns.
+              </p>
+            </div>
+
+            {/* Contact Form */}
+            <div className="space-y-6">
+              <input
+                type="text"
+                className="w-full p-3 bg-gray-800 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                placeholder="Your Name"
+              />
+              <input
+                type="email"
+                className="w-full p-3 bg-gray-800 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                placeholder="Your Email"
+              />
+              <textarea
+                className="w-full p-3 bg-gray-800 rounded-md placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                rows={4}
+                placeholder="Your Message"
+              />
+              <Button   variant="outline"
+                  className="w-full p-3 bg-primary-500 text-white rounded-3xl py-2 px-10  duration-300 ease-in-out">
+                Send Message
+              </Button>
             </div>
           </div>
         </div>
