@@ -6,6 +6,9 @@ import {
   faDiamond,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons"; // Import card suit icons
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const faqsByCategory = {
   "Getting Started": [
@@ -23,12 +26,10 @@ const faqsByCategory = {
   Payments: [
     {
       question: "How is my commission calculated?",
-      answer: `
-        <ul style="list-style-type: disc; padding-left: 20px;">
-          <li>Commission = Net Gaming Revenue × Revenue Share %</li>
-          <li>Net Gaming Revenue = Gross Gaming Revenue – Bonus Costs – Chargebacks – Admin Fee</li>
-        </ul>
-      `,
+      answer: [
+        "Commission = Net Gaming Revenue × Revenue Share %",
+        "Net Gaming Revenue = Gross Gaming Revenue – Bonus Costs – Chargebacks – Admin Fee",
+      ],
     },
     {
       question: "When will I receive my commission?",
@@ -68,8 +69,8 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 px-2 text-gray-50">
-      <div className="bg-cover bg-center py-4 relative overflow-hidden">
+    <section id="faq" className="py-20 px-2 text-gray-50 mb-4 shadow-xl shadow-gray-400 h-[40rem] z-50 relative">
+      <div className="bg-cover bg-center py-4 relative">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 relative">
         F.A.Q
         </h2>
@@ -132,10 +133,16 @@ const FAQ: React.FC = () => {
                 >
                   {openIndex === index && (
                     <div className="mt-3 text-gray-200 text-base md:text-sm">
-                      <p
-                        dangerouslySetInnerHTML={{ __html: faq.answer }} // Render the HTML content
-                      />
-                    </div>
+                    {Array.isArray(faq.answer) ? (
+                      <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+                        {faq.answer.map((item, index) => (
+                          <li key={index}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p>{faq.answer}</p>
+                    )}
+                  </div>                  
                   )}
                 </div>
               </div>

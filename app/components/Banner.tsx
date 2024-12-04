@@ -4,7 +4,7 @@ const Banner: React.FC = () => {
   return (
     <section
       style={{ height: `calc(100vh - 150px)` }}
-      className="text-gray-50 flex flex-col-reverse md:flex-row items-center justify-between px-6 lg:px-36 main-font relative"
+      className="text-gray-50 flex flex-col-reverse md:flex-row items-center justify-between px-6 lg:px-36 main-font relative shadow-xl shadow-gray-400"
     >
       {/* Text Section */}
       <div className="w-full md:w-1/2 text-left md:text-right md:mb-0 space-y-6 z-30">

@@ -44,7 +44,7 @@ const WhyUs: React.FC = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-[#F5F5F5] text-[#161617] shadow-lg shadow-gray-400 "
+      className="py-20 bg-[#F5F5F5] text-[#161617] shadow-lg shadow-gray-500"
     >
       <h1 className="text-center text-3xl font-bold mb-6">Why Us</h1>
       <p className="text-center text-gray-500 mb-12">
