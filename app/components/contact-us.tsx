@@ -42,6 +42,13 @@ const ContactUs: React.FC = () => {
                 <span>123 Main St, Cityville</span>
               </div>
               <div className="flex items-center text-gray-400">
+              <FontAwesomeIcon
+                icon={faEnvelope}
+                className="text-primary-500 mr-3"
+              />
+              <span>contact@company.com</span>
+            </div>
+              <div className="flex items-center text-gray-400">
                 <FontAwesomeIcon
                   icon={faPhone}
                   className="text-primary-500 mr-3"

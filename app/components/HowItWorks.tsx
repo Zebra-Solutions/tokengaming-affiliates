@@ -23,7 +23,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="bg-[#f2f3f5] p-5">
+    <div className="bg-[#f2f3f5] p-5" id="howitworks">
       <h5 className="text-[#3258FB] text-center my-4">HOW IT WORKS</h5>
       <h2 className="text-2xl font-semibold text-center mt-6 mb-16">Four steps to start earning</h2>
       <div className="flex flex-wrap justify-between gap-4 mx-10">

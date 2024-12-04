@@ -12,7 +12,7 @@ import NavLink from "../NavLink";
 const sections = [
   { id: "about", label: "Why Us?" },
   { id: "faq", label: "FAQ" },
-  { id: "steps", label: "How it Works?" },
+  { id: "howitworks", label: "How it Works?" },
   { id: "contact", label: "Contact Us" },
 ];
 
