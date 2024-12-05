@@ -172,3 +172,9 @@ html {
   transform: scaleX(1); /* Fully expand the line */
   transform-origin: left; /* Animate towards the left */
 }
+
+@media (max-width: 1500px) {
+  .br-control {
+    display: none;
+  }
+}

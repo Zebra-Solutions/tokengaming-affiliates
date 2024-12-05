@@ -14,14 +14,24 @@ const Banner: React.FC = () => {
         <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-right leading-tight">
           Promote Share Earn
         </h1>
-        <h4 className="text-2xl md:text-2xl text-gray-300 leading-relaxed font-light  text-right">
-          Join our affiliate program and watch your profits grow! It’s simple,
-          effective, and rewarding.
+        <h4 className="text-2xl md:text-2xl text-gray-300 leading-relaxed font-light text-right">
+          Join our affiliate program and watch your profits grow! {''}
+          <span className="br-control">
+            <br />
+          </span>
+          It’s simple, effective, and rewarding.
         </h4>
+
         <div className=" pb-5 text-right">
-        <Button asChild className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold">
-         <Link href="/sign-up" target="_blank" rel="noopener noreferrer">Join us</Link> 
-        </Button></div>
+          <Button
+            asChild
+            className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold"
+          >
+            <Link href="/sign-up" target="_blank" rel="noopener noreferrer">
+              Join us
+            </Link>
+          </Button>
+        </div>
       </div>
 
       {/* Image Section */}
