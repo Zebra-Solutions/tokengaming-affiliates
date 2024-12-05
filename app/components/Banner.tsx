@@ -4,12 +4,12 @@ const Banner: React.FC = () => {
   return (
     <section
       style={{ height: `calc(100vh - 150px)` }}
-      className="text-gray-50 flex flex-col-reverse md:flex-row items-center justify-between px-6 lg:px-36 main-font relative shadow-xl shadow-gray-400"
+      className="text-gray-50 flex flex-col-reverse md:flex-row items-center justify-between px-6 lg:px-36 main-font relative"
     >
       {/* Text Section */}
       <div className="w-full md:w-1/2 text-left md:text-right md:mb-0 space-y-6 z-30">
         <h1 className="text-4xl md:text-4xl font-bold tracking-tight leading-tight">
-        Promote Share Earn 
+          Promote Share Earn
         </h1>
         <h4 className="text-2xl md:text-2xl text-gray-300 leading-relaxed font-light pb-10">
           Join our affiliate program and watch your profits grow! It’s simple,
@@ -28,6 +28,7 @@ const Banner: React.FC = () => {
           className="object-cover w-full h-full rounded-t-[150px] md:rounded-l-full z-10"
         />
       </div>
+      <div className="absolute left-0 bottom-0 w-full shadow-[0_0_50px_0px_rgba(0,0,0,0.4)]"><p className="text-[#161617]">.</p></div>
     </section>
   );
 };

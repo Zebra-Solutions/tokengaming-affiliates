@@ -1,6 +1,4 @@
 import Link from "next/link";
-import logoSign from "@/public/logo-mobile.svg"; // Adjust the path if necessary
-import Image from "next/image";
 import "./contact-us.css";
 import Logo from "./logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

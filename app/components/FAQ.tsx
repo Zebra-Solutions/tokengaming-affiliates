@@ -69,7 +69,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section id="faq" className="py-20 px-2 text-gray-50 mb-4 shadow-xl shadow-gray-400 h-[40rem] z-50 relative">
+    <section id="faq" className="py-20 px-2 text-gray-50 mb-4 shadow-xl shadow-gray-400 h-[40rem] relative">
       <div className="bg-cover bg-center py-4 relative">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 relative">
         F.A.Q
