@@ -113,7 +113,7 @@ const FAQ: React.FC = () => {
                       icon={icon} // Use the card suit icon
                       className="w-4 h-4 mr-2 text-l text-[#3258FB]"
                     />
-                    <span>{faq.question}</span>
+                    <span className="font-extrabold uppercase text-[0.7rem]">{faq.question}</span>
                   </div>
                   <FontAwesomeIcon
                     icon={faChevronDown} // Icon for the dropdown

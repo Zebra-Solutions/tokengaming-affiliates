@@ -81,6 +81,21 @@ export default function Header({ className = "" }: { className?: string }) {
               <NavLink
                 key={id}
                 href={`#${id}`}
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  const element = document.getElementById(id);
+                  if (element) {
+                    const headerOffset = 50; // Adjust this based on your header height
+                    const elementPosition =
+                      element.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerOffset;
+
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth",
+                    });
+                  }
+                }}
                 className={clsx("nav-link", activeSection === id && "active")}
               >
                 {label}
@@ -129,7 +144,7 @@ export default function Header({ className = "" }: { className?: string }) {
                   Sign up
                 </GradientButton>
                 <Button
-                asChild
+                  asChild
                   variant="outline"
                   className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900"
                 >
