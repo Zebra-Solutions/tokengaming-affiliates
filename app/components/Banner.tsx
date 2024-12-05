@@ -11,10 +11,10 @@ const Banner: React.FC = () => {
     >
       {/* Text Section */}
       <div className="w-full md:w-1/2 md:text-right md:mb-0 space-y-6 z-30 ">
-        <h1 className="text-4xl md:text-4xl font-bold tracking-tight text-right leading-tight">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-right leading-tight">
           Promote Share Earn
         </h1>
-        <h4 className="text-2xl md:text-2xl text-gray-300 leading-relaxed font-light text-right">
+        <h4 className="text-xl md:text-2xl text-gray-300 leading-relaxed font-light text-right">
           Join our affiliate program and watch your profits grow! {''}
           <span className="br-control">
             <br />
@@ -35,14 +35,14 @@ const Banner: React.FC = () => {
       </div>
 
       {/* Image Section */}
-      <div className="absolute w-full h-full right-0 top-0 -ml-20 rounded-t-[150px] md:rounded-l-full z-20 sm:w-2/3">
+      <div className="absolute w-full h-full right-0 top-0 -ml-20 rounded-t-[100px] md:rounded-l-full z-20 sm:w-2/3">
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#2d2d2d] opacity-50 rounded-t-[150px] md:rounded-l-full z-30"></div>
+        <div className="absolute inset-0 bg-[#2d2d2d] opacity-50 rounded-t-[100px] md:rounded-l-full z-30"></div>
         {/* Image */}
         <img
           src="./monkey.png" //
           alt="Banner"
-          className="object-cover w-full h-full rounded-t-[150px] md:rounded-l-full z-10"
+          className="object-cover w-full h-full rounded-t-[100px] md:rounded-l-full z-10"
         />
       </div>
     </section>

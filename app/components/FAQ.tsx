@@ -86,7 +86,7 @@ const FAQ: React.FC = () => {
                 setActiveCategory(category as keyof typeof faqsByCategory);
                 setOpenIndex(null); // Reset open index on category change
               }}
-              className={`py-2 px-4 font-semibold rounded-lg transition ${
+              className={`py-2 md:px-4 px-2 font-semibold rounded-lg transition ${
                 activeCategory === category
                   ? "bg-[#3258FB] text-white"
                   : "bg-gray-600 text-gray-200 hover:bg-gray-500"
