@@ -12,6 +12,7 @@ import {
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome icons
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const WhyUs: React.FC = () => {
   const features = [
@@ -48,7 +49,7 @@ const WhyUs: React.FC = () => {
     >
       <h5 className="text-[#3258FB] text-center pb-8 ">WHY US</h5>
       <h3 className="text-center mb-14 font-normal text ">
-     THE BEST SERVICE IN THE INDUSTRY
+        THE BEST SERVICE IN THE INDUSTRY
       </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-16">
@@ -74,7 +75,9 @@ const WhyUs: React.FC = () => {
 
       <div className="flex justify-center mt-12">
         <Button className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold">
-          Became a partner
+          <Link href="/sign-up" target="_blank" rel="noopener noreferrer">
+            Become a partner
+          </Link>
         </Button>
       </div>
     </section>
@@ -82,4 +85,3 @@ const WhyUs: React.FC = () => {
 };
 
 export default WhyUs;
-

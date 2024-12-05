@@ -5,22 +5,31 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#161617] text-gray-50 rounded-lg shadow">
       <hr className="border-[#f2f3f5] dark:border-gray-700 w-full" />
-      <div className="mx-6 p-4 md:py-8 flex justify-between items-center">
+      <div className="mx-6 p-4 md:py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         {/* Left Side */}
-        <div className="flex space-x-4 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="/terms-of-condition" className="hover:underline">
+        <div className="flex flex-col md:flex-row w-full md:w-auto text-sm text-gray-500 dark:text-gray-400">
+          <Link
+            href="/terms-of-condition"
+            className="hover:underline w-full md:w-auto text-center md:text-left"
+          >
             Terms of Condition
           </Link>
-          <Link href="/privacy-policy" className="hover:underline">
+          <Link
+            href="/privacy-policy"
+            className="hover:underline w-full md:w-auto text-center md:text-left"
+          >
             Privacy Policy
           </Link>
-          <Link href="/privacy-policy" className="hover:underline">
+          <Link
+            href="/privacy-policy"
+            className="hover:underline w-full md:w-auto text-center md:text-left"
+          >
             Lorem Ipsum
           </Link>
         </div>
 
         {/* Right Side */}
-        <div className="text-sm m-0 text-gray-500 sm:text-center dark:text-gray-400">
+        <div className="text-sm text-center text-gray-500 dark:text-gray-400">
           © {currentYear}{" "}
           <Link href="/" className="hover:underline">
             Tokengaming Affiliates
