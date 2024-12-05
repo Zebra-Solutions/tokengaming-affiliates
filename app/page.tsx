@@ -7,7 +7,7 @@ import Banner from "./components/Banner";
 import Testimonials from "./components/Testimonials";
 import ContactUs from "./components/contact-us";
 import Footer from "./components/Footer";
-import PolicyCookies from "./components/cookies/Policy-cookies";
+
 import HowItWorks from "./components/HowItWorks";
 
 export default function Home() {
@@ -18,18 +18,11 @@ export default function Home() {
         className="pt-[80px]" // Add padding-top matching header height
       >
         <Banner />
-
         <WhyUs />
-
-       
-
-       
-
         <FAQ />
-        <HowItWorks/>
+        <HowItWorks />
         <ContactUs />
         <Footer />
-        <PolicyCookies />
       </div>
     </div>
   );

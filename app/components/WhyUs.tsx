@@ -46,10 +46,10 @@ const WhyUs: React.FC = () => {
       id="about"
       className="py-20 bg-[#F5F5F5] text-[#161617] shadow-lg shadow-gray-500"
     >
-      <h1 className="text-center text-3xl font-bold mb-6">Why Us</h1>
-      <p className="text-center text-gray-500 mb-12">
-        We are committed to providing the best services in the industry
-      </p>
+      <h5 className="text-[#3258FB] text-center pb-8 ">WHY US</h5>
+      <h3 className="text-center mb-14 font-normal text ">
+     THE BEST SERVICE IN THE INDUSTRY
+      </h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4 sm:px-8 lg:px-16">
         {features.map((feature, index) => (

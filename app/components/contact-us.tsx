@@ -9,7 +9,6 @@ import {
   faInstagram,
   faSkype,
   faLinkedin,
-  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { Button } from "@/components/ui/button";
 
@@ -21,10 +20,6 @@ const ContactUs: React.FC = () => {
     >
       {/* Content Container */}
       <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12">
-        {/* Logo Row */}
-        <div className="flex justify-start mb-10">
-          <Logo width={250} />
-        </div>
 
         {/* Grid for Contact Us, Quick Links, Have Any Questions? */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
@@ -55,7 +50,7 @@ const ContactUs: React.FC = () => {
               </div>
                {/* Social Media */}
                <div className="flex space-x-8 pt-6">
-                {[faFacebook, faTwitter, faInstagram, faSkype, faLinkedin, faYoutube].map((icon, index) => (
+                {[faFacebook, faTwitter, faInstagram, faSkype, faLinkedin].map((icon, index) => (
                   <FontAwesomeIcon
                     key={index}
                     icon={icon}
@@ -64,6 +59,10 @@ const ContactUs: React.FC = () => {
                   />
                 ))}
               </div>
+
+              <div className="opacity-10 pt-16">
+                 <Logo width={250} />
+               </div>
             </div>
           </div>
 

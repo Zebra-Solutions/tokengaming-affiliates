@@ -23,10 +23,10 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="bg-[#f2f3f5] p-5 -mt-4 shadow-lg shadow-gray-500" id="howitworks">
-      <h5 className="text-[#3258FB] text-center my-4">HOW IT WORKS</h5>
-      <h2 className="text-2xl font-semibold text-center mt-6 mb-16">Four steps to start earning</h2>
-      <div className="flex flex-wrap justify-between gap-4 mx-10">
+    <div className="bg-[#f2f3f5] p-8 -mt-4 shadow-lg shadow-gray-500" id="howitworks">
+      <h5 className="text-[#3258FB] text-center my-14">HOW IT WORKS</h5>
+      <h2 className="text-2xl font-semibold text-center mb-20">Four steps to start earning</h2>
+      <div className="flex flex-wrap justify-between gap-4 mx-20 my-10">
         {steps.map((step) => (
           <div
             key={step.number}

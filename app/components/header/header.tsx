@@ -129,10 +129,11 @@ export default function Header({ className = "" }: { className?: string }) {
                   Sign up
                 </GradientButton>
                 <Button
+                asChild
                   variant="outline"
                   className="rounded-3xl py-2 px-10 transition duration-300 ease-in-out text-slate-900"
                 >
-                  Log in
+                  <Link href="/login">Log in</Link>
                 </Button>
               </div>
             </div>
