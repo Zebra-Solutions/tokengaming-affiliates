@@ -34,7 +34,7 @@ export default function Header({ className = "" }: { className?: string }) {
       let currentSection = sectionElements.find((section) => {
         if (!section) return false;
         const rect = section.getBoundingClientRect();
-        return rect.top <= 0 && rect.bottom >= 40;
+        return rect.top <= 100 && rect.bottom >= 120;
       });
 
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
@@ -48,7 +48,6 @@ export default function Header({ className = "" }: { className?: string }) {
       setIsScrolled(window.scrollY > 0);
     };
 
-    // Check scroll position on initial load
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
@@ -83,6 +82,7 @@ export default function Header({ className = "" }: { className?: string }) {
                 href={`#${id}`}
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                   e.preventDefault();
+
                   const element = document.getElementById(id);
                   if (element) {
                     const headerOffset = 50; // Adjust this based on your header height
@@ -94,6 +94,9 @@ export default function Header({ className = "" }: { className?: string }) {
                       top: offsetPosition,
                       behavior: "smooth",
                     });
+
+                    // Remove focus after the scroll is complete
+                    e.currentTarget.blur();
                   }
                 }}
                 className={clsx("nav-link", activeSection === id && "active")}

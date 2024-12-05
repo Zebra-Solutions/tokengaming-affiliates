@@ -2,7 +2,7 @@ import Image from "next/image";
 interface LogoProps {
   width?: number;
   height?: number;
-  className?: string; // Add className prop
+  className?: string;
 }
 const Logo: React.FC<LogoProps> = ({ width = 150, height = 50, className }) => {
   return (

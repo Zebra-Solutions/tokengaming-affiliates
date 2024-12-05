@@ -3,14 +3,14 @@ import {
   CardHeader,
   CardTitle,
   CardDescription,
-} from "@/components/ui/card"; // Make sure to import the necessary components
+} from "@/components/ui/card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartBar,
   faDollarSign,
   faCreditCard,
   faUserTie,
-} from "@fortawesome/free-solid-svg-icons"; // Import Font Awesome icons
+} from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -74,7 +74,10 @@ const WhyUs: React.FC = () => {
       </div>
 
       <div className="flex justify-center mt-12">
-        <Button className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold">
+        <Button
+          asChild
+          className="rounded-3xl py-4 px-10 transition duration-300 ease-in-out hover:bg-[#4563e9] bg-[#3258FB] text-[#f2f3f5] text-md font-bold"
+        >
           <Link href="/sign-up" target="_blank" rel="noopener noreferrer">
             Become a partner
           </Link>

@@ -40,7 +40,7 @@ const Banner: React.FC = () => {
         <div className="absolute inset-0 bg-[#2d2d2d] opacity-50 rounded-t-[150px] md:rounded-l-full z-30"></div>
         {/* Image */}
         <img
-          src="./monkey.png" // Replace with your image
+          src="./monkey.png" //
           alt="Banner"
           className="object-cover w-full h-full rounded-t-[150px] md:rounded-l-full z-10"
         />

@@ -65,7 +65,7 @@ const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index); // Toggle the open FAQ
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
@@ -100,7 +100,7 @@ const FAQ: React.FC = () => {
         <div className="max-w-2xl mx-auto px-4 relative">
           {faqsByCategory[activeCategory].map((faq, index) => {
             const iconList = [faHeart, faDiamond];
-            const icon = iconList[index % iconList.length]; // Select a different icon for each FAQ
+            const icon = iconList[index % iconList.length];
 
             return (
               <div key={index} className="border-b border-gray-300 mb-4 pb-4">
@@ -110,13 +110,13 @@ const FAQ: React.FC = () => {
                 >
                   <div className="flex items-center">
                     <FontAwesomeIcon
-                      icon={icon} // Use the card suit icon
+                      icon={icon}
                       className="w-4 h-4 mr-2 text-l text-[#3258FB]"
                     />
                     <span className="font-extrabold uppercase text-[0.7rem]">{faq.question}</span>
                   </div>
                   <FontAwesomeIcon
-                    icon={faChevronDown} // Icon for the dropdown
+                    icon={faChevronDown}
                     className={`transition-transform ${
                       openIndex === index ? "rotate-180" : ""
                     } w-4 h-4`}
@@ -126,9 +126,9 @@ const FAQ: React.FC = () => {
                 {/* Smooth Transition Container */}
                 <div
                   style={{
-                    transition: "max-height 2s ease-in-out", // Apply transition for both opening and closing
+                    transition: "max-height 2s ease-in-out",
                     overflow: "hidden",
-                    maxHeight: openIndex === index ? "1000px" : "0", // Smoothly transition between 0 and 1000px
+                    maxHeight: openIndex === index ? "1000px" : "0",
                   }}
                 >
                   {openIndex === index && (

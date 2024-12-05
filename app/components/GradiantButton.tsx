@@ -10,14 +10,14 @@ interface GradientButtonProps {
   hoverFromColor?: string;
   hoverToColor?: string;
   className?: string;
-  type?: "button" | "submit" | "reset"; // Valid types for a <button>
-  disabled?: boolean; // To handle disabled state
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 const GradientButton: React.FC<GradientButtonProps> = ({
   href,
   children,
-  type = "button", // Default to "button"
+  type = "button",
   fromColor = "from-[#3258FB]",
   toColor = "to-blue-500",
   hoverFromColor = "hover:from-blue-500",
