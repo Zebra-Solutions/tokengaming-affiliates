@@ -100,8 +100,8 @@ export default function LoginPage() {
 
   return (
     <>
-      <Logo width={300} />
-      <Card className="w-full max-w-sm">
+      <Logo width={300}/>
+      <Card className="w-full max-w-sm ">
         <CardHeader>
           <CardTitle>Login</CardTitle>
           <CardDescription>

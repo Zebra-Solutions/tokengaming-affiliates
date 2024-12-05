@@ -144,7 +144,7 @@ export default function SignupPage() {
     <>
       <Logo
         width={200}
-        className={`logo-animation ${isLogoVisible ? "visible" : ""}`}
+        className={`logo-animation ${isLogoVisible ? "visible" : ""} mt-3`}
       />
       <Card className="w-full max-w-sm">
         <CardHeader>

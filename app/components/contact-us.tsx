@@ -94,7 +94,7 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Right Column (Have Any Questions?) */}
-          <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-2">
+          <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-2 md:mt-0 mt-20">
             <div className="text-center lg:text-right">
               <h2 className="text-2xl font-bold text-gray-100">
                 Have Any Questions?

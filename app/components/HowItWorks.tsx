@@ -26,16 +26,16 @@ export default function HowItWorks() {
     <div className="bg-[#f2f3f5] p-8 -mt-4 shadow-lg shadow-gray-500" id="howitworks">
       <h5 className="text-[#3258FB] text-center my-14">HOW IT WORKS</h5>
       <h2 className="text-2xl font-semibold text-center mb-20">Four steps to start earning</h2>
-      <div className="flex flex-wrap justify-between gap-4 mx-20 my-10">
+      <div className="flex flex-wrap justify-between gap-4 mx-6">
         {steps.map((step) => (
           <div
             key={step.number}
-            className="text-center mb-16 sm:w-full md:w-1/2 lg:w-1/5"
+            className="text-center mb-16 sm:w-full md:full lg:w-1/5"
           >
             <div className="w-12 h-12 hover:bg-[#4b68ea] bg-[#3258FB] text-white rounded-full flex items-center justify-center mx-auto mb-4">
               {step.number}
             </div>
-            <h4 className="text-lg  mb-2">{step.title}</h4>
+            <h4 className="text-lg mb-2">{step.title}</h4>
             <p className="text-sm text-gray-600">{step.description}</p>
           </div>
         ))}

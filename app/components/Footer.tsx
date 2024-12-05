@@ -10,21 +10,21 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row w-full md:w-auto text-sm text-gray-500 dark:text-gray-400">
           <Link
             href="/terms-of-condition"
-            className="hover:underline w-full md:w-auto text-center md:text-left"
+            className="hover:underline w-full md:w-auto text-center md:text-left md:mx-2"
           >
-            Terms of Condition
+            Terms of Condition 
+          </Link>
+          <Link
+            href="/privacy-policy"
+            className="hover:underline w-full md:w-auto text-center md:text-left md:mx-2"
+          >
+            Privacy Policy 
           </Link>
           <Link
             href="/privacy-policy"
             className="hover:underline w-full md:w-auto text-center md:text-left"
           >
-            Privacy Policy
-          </Link>
-          <Link
-            href="/privacy-policy"
-            className="hover:underline w-full md:w-auto text-center md:text-left"
-          >
-            Lorem Ipsum
+            Lorem Ipsum 
           </Link>
         </div>
 
