@@ -57,7 +57,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       screens: {
-        custom: "1216px",
+        custom: "1215px",
       },
       fontFamily: {
         heading: ['AkiraExpanded', 'sans-serif'], // Custom heading font

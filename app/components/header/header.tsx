@@ -76,7 +76,7 @@ export default function Header({ className = "" }: { className?: string }) {
           </NavLink>
 
           {/* Navigation Links */}
-          <nav className="hidden lg:flex lg:space-x-7 ml-16">
+          <nav className="hidden custom:flex lg:space-x-7 ml-16">
             {sections.map(({ id, label }) => (
               <NavLink
                 key={id}
@@ -104,7 +104,7 @@ export default function Header({ className = "" }: { className?: string }) {
           </nav>
 
           {/* Hamburger Menu */}
-          <button onClick={toggleDrawer} className="lg:hidden p-2 ml-auto">
+          <button onClick={toggleDrawer} className="custom:hidden p-2 ml-auto">
             <MenuIcon className="text-white" />
           </button>
         </div>
