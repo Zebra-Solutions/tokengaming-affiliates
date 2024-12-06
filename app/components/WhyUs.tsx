@@ -47,7 +47,7 @@ const WhyUs: React.FC = () => {
       id="about"
       className="py-20 bg-[#F5F5F5] text-[#161617] shadow-lg shadow-gray-500"
     >
-      <h5 className="text-[#3258FB] text-center pb-8 ">WHY US</h5>
+      <h5 className="text-[#3258FB] text-center my-14">WHY US</h5>
       <h3 className="text-center mb-14 font-normal text ">
         THE BEST SERVICE IN THE INDUSTRY
       </h3>

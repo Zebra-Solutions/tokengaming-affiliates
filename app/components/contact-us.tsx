@@ -2,7 +2,11 @@ import Link from "next/link";
 import "./contact-us.css";
 import Logo from "./logo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkerAlt, faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMapMarkerAlt,
+  faEnvelope,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faFacebook,
   faTwitter,
@@ -20,7 +24,6 @@ const ContactUs: React.FC = () => {
     >
       {/* Content Container */}
       <div className="w-full max-w-screen-xl mx-auto px-6 lg:px-12">
-
         {/* Grid for Contact Us, Quick Links, Have Any Questions? */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Left Column (Contact Us) */}
@@ -35,12 +38,12 @@ const ContactUs: React.FC = () => {
                 <span>123 Main St, Cityville</span>
               </div>
               <div className="flex items-center text-gray-400">
-              <FontAwesomeIcon
-                icon={faEnvelope}
-                className="text-primary-500 mr-3"
-              />
-              <span>contact@company.com</span>
-            </div>
+                <FontAwesomeIcon
+                  icon={faEnvelope}
+                  className="text-primary-500 mr-3"
+                />
+                <span>contact@company.com</span>
+              </div>
               <div className="flex items-center text-gray-400">
                 <FontAwesomeIcon
                   icon={faPhone}
@@ -48,27 +51,31 @@ const ContactUs: React.FC = () => {
                 />
                 <span>+1 (555) 123-4567</span>
               </div>
-               {/* Social Media */}
-               <div className="flex space-x-8 pt-6">
-                {[faFacebook, faTwitter, faInstagram, faSkype, faLinkedin].map((icon, index) => (
-                  <FontAwesomeIcon
-                    key={index}
-                    icon={icon}
-                    className="text-gray-500 hover:text-primary-500 transition-all transform hover:scale-110 cursor-pointer"
-                    size="2x"
-                  />
-                ))}
+              {/* Social Media */}
+              <div className="flex space-x-8 pt-6">
+                {[faFacebook, faTwitter, faInstagram, faSkype, faLinkedin].map(
+                  (icon, index) => (
+                    <FontAwesomeIcon
+                      key={index}
+                      icon={icon}
+                      className="text-gray-500 hover:text-primary-500 transition-all transform hover:scale-110 cursor-pointer"
+                      size="2x"
+                    />
+                  )
+                )}
               </div>
 
               <div className="opacity-10 pt-16">
-                 <Logo width={250} />
-               </div>
+                <Logo width={250} />
+              </div>
             </div>
           </div>
 
           {/* Middle Column (Quick Links) */}
           <div className="space-y-8 col-span-1 sm:col-span-2 lg:col-span-1">
-            <h2 className="text-xl font-bold text-gray-100 mb-6">Quick Links</h2>
+            <h2 className="text-xl font-bold text-gray-100 mb-6">
+              Quick Links
+            </h2>
             <ul className="space-y-4 text-gray-400">
               <li>
                 <Link href="#" className="hover:text-primary-500">
@@ -100,7 +107,8 @@ const ContactUs: React.FC = () => {
                 Have Any Questions?
               </h2>
               <p className="text-gray-400 mt-4">
-                Reach out to our team, and we’ll be happy to assist you with any inquiries or concerns.
+                Reach out to our team, and we’ll be happy to assist you with any
+                inquiries or concerns.
               </p>
             </div>
 
@@ -121,8 +129,7 @@ const ContactUs: React.FC = () => {
                 rows={4}
                 placeholder="Your Message"
               />
-              <Button   variant="outline"
-                  className="w-full p-3 bg-primary-500 text-white rounded-3xl py-2 px-10  duration-300 ease-in-out">
+              <Button className="w-full p-3 bg-slate-600 hover:bg-slate-700 text-white rounded-3xl py-2 px-10  duration-300 ease-in-out">
                 Send Message
               </Button>
             </div>
