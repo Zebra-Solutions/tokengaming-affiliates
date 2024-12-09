@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TermsAndCondition from "./termsandcondition";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -8,12 +9,7 @@ export default function Footer() {
       <div className="mx-6 p-4 md:py-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         {/* Left Side */}
         <div className="flex flex-col md:flex-row w-full md:w-auto text-sm text-gray-500 dark:text-gray-400">
-          <Link
-            href="/terms-of-condition"
-            className="hover:underline w-full md:w-auto text-center md:text-left md:mx-2"
-          >
-            Terms of Condition 
-          </Link>
+        <TermsAndCondition />
           <Link
             href="/privacy-policy"
             className="hover:underline w-full md:w-auto text-center md:text-left md:mx-2"
