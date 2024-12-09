@@ -64,7 +64,7 @@ const WhyUs: React.FC = () => {
                 className="mb-4 h-[20px] w-[20px]"
                 style={{ color: "#3258FB" }}
               />
-              <CardTitle>{feature.title}</CardTitle>
+              <h4>{feature.title}</h4>
             </CardHeader>
             <CardDescription className="text-gray-500 text-center flex-grow">
               {feature.description}
