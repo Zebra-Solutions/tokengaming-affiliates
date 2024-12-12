@@ -70,7 +70,7 @@ export default function Header({ className = "" }: { className?: string }) {
       >
         <div className="flex items-center w-full">
           {/* Menu Logo */}
-          <NavLink href="/" className="mt-9">
+          <NavLink href="/" className="mt-5">
             <Logo />
           </NavLink>
 
