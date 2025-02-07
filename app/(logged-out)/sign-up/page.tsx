@@ -39,6 +39,11 @@ const baseSchema = z.object({
     .regex(/^\S+@\S+\.\S+$/, "Invalid email format"),
   password: z.string().min(6, "Password must be at least 6 characters long"),
   passwordConfirm: z.string(),
+  terms_accepted: z
+  .boolean({
+    required_error: "You must accept the terms and conditions",
+  })
+  .refine((val) => val, "You must accept the terms and conditions"),
   skype: z.string().min(1, "Skype username is required"),
 });
 
@@ -70,6 +75,7 @@ export default function SignupPage() {
       email: "",
       password: "",
       passwordConfirm: "",
+      terms_accepted: true,
       skype: "",
     },
   });
@@ -90,6 +96,7 @@ export default function SignupPage() {
             email: data.email,
             password: data.password,
             password_confirmation: data.passwordConfirm,
+            terms_accepted: true,
             skype: data.skype,
           },
         },
