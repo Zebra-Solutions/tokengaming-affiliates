@@ -23,7 +23,6 @@ import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { PasswordInput } from "@/components/ui/password-input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/app/components/logo";

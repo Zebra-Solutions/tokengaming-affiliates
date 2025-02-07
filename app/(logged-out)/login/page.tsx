@@ -66,20 +66,22 @@ export default function LoginPage() {
       );
   
       if (response.status === 201) {
+        // Store authentication status in localStorage
+        localStorage.setItem("isAuthenticated", "true");
+  
         Swal.fire({
           icon: "success",
           title: "Login Successful!",
           text: "You have successfully logged in.",
         });
+  
         router.push("/");
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         const errorData = error.response.data;
+        setErrorMessage(errorData.error || "An unexpected error occurred during login.");
   
-        setErrorMessage(
-          errorData.error || "An unexpected error occurred during login."
-        );
         Swal.fire({
           icon: "error",
           title: "Login Failed",
@@ -96,7 +98,7 @@ export default function LoginPage() {
     } finally {
       setLoading(false);
     }
-  };
+  };  
 
   return (
     <>
