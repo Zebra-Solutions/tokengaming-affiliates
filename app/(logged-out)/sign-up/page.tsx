@@ -23,7 +23,6 @@ import Link from "next/link";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { PasswordInput } from "@/components/ui/password-input";
-import { Checkbox } from "@/components/ui/checkbox";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Logo from "@/app/components/logo";
@@ -41,10 +40,10 @@ const baseSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters long"),
   passwordConfirm: z.string(),
   terms_accepted: z
-    .boolean({
-      required_error: "You must accept the terms and conditions",
-    })
-    .refine((val) => val, "You must accept the terms and conditions"),
+  .boolean({
+    required_error: "You must accept the terms and conditions",
+  })
+  .refine((val) => val, "You must accept the terms and conditions"),
   skype: z.string().min(1, "Skype username is required"),
 });
 
@@ -76,7 +75,7 @@ export default function SignupPage() {
       email: "",
       password: "",
       passwordConfirm: "",
-      terms_accepted: false,
+      terms_accepted: true,
       skype: "",
     },
   });
@@ -97,7 +96,7 @@ export default function SignupPage() {
             email: data.email,
             password: data.password,
             password_confirmation: data.passwordConfirm,
-            terms_accepted: data.terms_accepted,
+            terms_accepted: true,
             skype: data.skype,
           },
         },
@@ -228,7 +227,7 @@ export default function SignupPage() {
                   <FormItem>
                     <FormLabel>Company Name</FormLabel>
                     <FormControl>
-                      <Input
+                    <Input
                         placeholder="Enter your company name"
                         type="text"
                         {...field}
@@ -308,32 +307,6 @@ export default function SignupPage() {
                         {...field}
                       />
                     </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              {/* Terms and Conditions */}
-              <FormField
-                control={form.control}
-                name="terms_accepted"
-                render={({ field }) => (
-                  <FormItem>
-                    <div className="flex items-center space-x-2">
-                      <Checkbox
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                      />
-                      <FormLabel className="text-sm">
-                        I accept the{" "}
-                        <Link
-                          href=""
-                          className="text-blue-600 hover:text-blue-800 underline"
-                        >
-                          terms and conditions
-                        </Link>
-                      </FormLabel>
-                    </div>
                     <FormMessage />
                   </FormItem>
                 )}
