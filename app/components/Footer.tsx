@@ -26,6 +26,12 @@ export default function Footer() {
           >
             Privacy Policy
           </Link>
+          {/* <Link
+            href="/privacy-policy"
+            className="hover:underline w-full md:w-auto text-center md:text-left"
+          >
+            Lorem Ipsum
+          </Link> */}
         </div>
 
         <div className="text-sm text-center text-gray-500 dark:text-gray-400">
